@@ -6,7 +6,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"   Last Update: 2014-07-03 14:14
+"   Last Update: 2014-07-03 23:27
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -68,11 +68,17 @@ endif
 if g:ostype=='unix'
   map <silent> <leader>ee :e $VIMHOME/.vimrc<cr>
   map <silent> <leader>ss :source $VIMHOME/.vimrc<cr>
-  au! bufwritepost .vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/.vimrc
+  augroup AutoResourceVimrc
+    au!
+    au bufwritepost .vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/.vimrc
+  augroup End
 elseif g:ostype=='windows'
   map <silent> <leader>ee :e $VIMHOME/_vimrc<cr>
   map <silent> <leader>ss :source $VIMHOME/_vimrc<cr>
-  au! bufwritepost _vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/_vimrc
+  augroup AutoResourceVimrc
+    au!
+    au bufwritepost _vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/_vimrc
+  augroup End
 endif
 
 
