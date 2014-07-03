@@ -1,11 +1,11 @@
 "=============================================================================
 "      FileName: basic.vim
-"   Description: ´ËÎª»ù±¾ÅäÖÃÎÄ¼ş£¬Ö»½øĞĞÁËÒ»Ğ©»ù±¾ÉèÖÃ£¬Ã»ÓĞÓ³ÉäÈÎºÎ¿ì½İ·½Ê½
-"        Author: ÓÄ¹ÈÆæ·å( https://twitter.com/yysfirecn )
+"   Description: æ­¤ä¸ºåŸºæœ¬é…ç½®æ–‡ä»¶ï¼Œåªè¿›è¡Œäº†ä¸€äº›åŸºæœ¬è®¾ç½®ï¼Œæ²¡æœ‰æ˜ å°„ä»»ä½•å¿«æ·æ–¹å¼
+"        Author: å¹½è°·å¥‡å³°( https://twitter.com/yysfirecn )
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 00:17
+"  Last Changed: 2014-07-04 00:22
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -64,33 +64,33 @@ set cmdheight=1
 "set hid
 
 set list
-" ÏÔÊ¾Tab·û£¬Ê¹ÓÃÒ»¸ßÁÁÊúÏß´úÌæ£¬ÍÏÎ²¿Õ°×ÓÃ'-'´úÌæ
+" æ˜¾ç¤ºTabç¬¦ï¼Œä½¿ç”¨ä¸€é«˜äº®ç«–çº¿ä»£æ›¿ï¼Œæ‹–å°¾ç©ºç™½ç”¨'-'ä»£æ›¿
 set listchars=tab:\|\ ,trail:-
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,[,]
 
-" ËÑË÷Ê±ºöÂÔ´óĞ¡Ğ´
+" æœç´¢æ—¶å¿½ç•¥å¤§å°å†™
 set ignorecase
-" ËÑË÷Ê±ÓĞ´óĞ´×ÖÄ¸Ê±ÈÔ±£³Ö¶Ô´óĞ¡Ğ´Ãô¸Ğ
+" æœç´¢æ—¶æœ‰å¤§å†™å­—æ¯æ—¶ä»ä¿æŒå¯¹å¤§å°å†™æ•æ„Ÿ
 set smartcase
-" ¸ßÁÁËÑË÷¹Ø¼ü×Ö
+" é«˜äº®æœç´¢å…³é”®å­—
 set hlsearch
-"ÔÚÊäÈëÒªËÑË÷µÄÎÄ×ÖÊ±£¬vim»áÊµÊ±Æ¥Åä
+"åœ¨è¾“å…¥è¦æœç´¢çš„æ–‡å­—æ—¶ï¼Œvimä¼šå®æ—¶åŒ¹é…
 set incsearch
-" ËÑË÷µ½ÎÄ¼şÁ½¶ËÊ±²»ÖØĞÂËÑË÷
+" æœç´¢åˆ°æ–‡ä»¶ä¸¤ç«¯æ—¶ä¸é‡æ–°æœç´¢
 set nowrapscan
 
 " Don't redraw while executing macros (good performance config)
-" Èç¹û²»ÖÃÎ»´ËÑ¡Ïî£¬×Ô¶¯¸üĞÂÎÄ¼şĞŞ¸ÄÊ±¼äµÄ¹¦ÄÜ¾Í»áÊ§Ğ§
+" å¦‚æœä¸ç½®ä½æ­¤é€‰é¡¹ï¼Œè‡ªåŠ¨æ›´æ–°æ–‡ä»¶ä¿®æ”¹æ—¶é—´çš„åŠŸèƒ½å°±ä¼šå¤±æ•ˆ
 set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-" ²åÈëÀ¨ºÅÊ±£¬¶ÌÔİµØÌø×ªµ½Æ¥ÅäµÄ¶ÔÓ¦À¨ºÅ¡£Ö»ÓĞÔÚÆÁÄ»ÉÏÄÜ¿´µ½Æ¥ÅäÊ±²Å»á½øĞĞÌø×ª
+" æ’å…¥æ‹¬å·æ—¶ï¼ŒçŸ­æš‚åœ°è·³è½¬åˆ°åŒ¹é…çš„å¯¹åº”æ‹¬å·ã€‚åªæœ‰åœ¨å±å¹•ä¸Šèƒ½çœ‹åˆ°åŒ¹é…æ—¶æ‰ä¼šè¿›è¡Œè·³è½¬
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
@@ -108,7 +108,7 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-" ÔÚxtermºÍscreenÏÂÖ§³Ö256É«
+" åœ¨xtermå’Œscreenä¸‹æ”¯æŒ256è‰²
 "if (&term =~ "xterm") || (&term =~ "screen")
 "set t_Co=256
 "endif
@@ -150,11 +150,11 @@ if has("gui_running")
 endif
 
 if has("gui_running")
-  set guioptions-=t "È¥µô¿ÉËºÏÂµÄ²Ëµ¥Ïî
-  "set guioptions-=m "È¥µô²Ëµ¥À¸
-  set guioptions-=T "È¥µô¹¤¾ßÀ¸
-  set guioptions-=L "ÓĞ´¹Ö±·Ö¸îµÄ´°¿ÚÊ±£¬È¥µô×ó±ßµÄ¹ö¶¯Ìõ
-  set guioptions-=r "È¥µôÓÒ±ßµÄ¹ö¶¯Ìõ
+  set guioptions-=t "å»æ‰å¯æ’•ä¸‹çš„èœå•é¡¹
+  "set guioptions-=m "å»æ‰èœå•æ 
+  set guioptions-=T "å»æ‰å·¥å…·æ 
+  set guioptions-=L "æœ‰å‚ç›´åˆ†å‰²çš„çª—å£æ—¶ï¼Œå»æ‰å·¦è¾¹çš„æ»šåŠ¨æ¡
+  set guioptions-=r "å»æ‰å³è¾¹çš„æ»šåŠ¨æ¡
   if has("windows")
     set guitablabel=%M\ %t
   endif
@@ -195,7 +195,7 @@ else
   language message zh_CN.utf-8
 endif
 
-" ½â¾ö²Ëµ¥ÂÒÂë
+" è§£å†³èœå•ä¹±ç 
 if has("gui_running")
   source $VIMRUNTIME/delmenu.vim
   source $VIMRUNTIME/menu.vim
@@ -230,15 +230,15 @@ if !isdirectory(myBackupDir)
   call mkdir(myBackupDir, "p")
 endif
 
-"ÉèÖÃ±¸·İÎÄ¼şµÄÄ¿Â¼
+"è®¾ç½®å¤‡ä»½æ–‡ä»¶çš„ç›®å½•
 let &backupdir=myBackupDir
-"ÉèÖÃ½»»»ÎÄ¼şµÄÄ¿Â¼
+"è®¾ç½®äº¤æ¢æ–‡ä»¶çš„ç›®å½•
 let &directory=myBackupDir
-"±¸·İÎÄ¼şµÄºó×ºÓÉÄ¬ÈÏµÄ~¸ÄÎª".bak"
+"å¤‡ä»½æ–‡ä»¶çš„åç¼€ç”±é»˜è®¤çš„~æ”¹ä¸º".bak"
 set backupext=.bak
-"¸ø±¸·İÎÄ¼şÃû¼ÓÉÏÊ±¼ä´Á£¬¾Í¿ÉÊµÏÖ¶à°æ±¾¿ØÖÆ
+"ç»™å¤‡ä»½æ–‡ä»¶ååŠ ä¸Šæ—¶é—´æˆ³ï¼Œå°±å¯å®ç°å¤šç‰ˆæœ¬æ§åˆ¶
 au BufWritePre * let &bex = '-' . strftime("%Y%m%d-%H%M%S") . '.bak'
-"ÔÚ±¸·İÎÄ¼şÄ¿Â¼´´½¨Ëù±à¼­ÎÄ¼şµÄÔ­Ê¼±¸·İ
+"åœ¨å¤‡ä»½æ–‡ä»¶ç›®å½•åˆ›å»ºæ‰€ç¼–è¾‘æ–‡ä»¶çš„åŸå§‹å¤‡ä»½
 set patchmode=.orig
 set backupskip+=.gitignore,.hgignore
 
@@ -261,9 +261,9 @@ endif
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 1 tab == 4 spaces
-set shiftwidth=4 "(×Ô¶¯) Ëõ½øÃ¿Ò»²½Ê¹ÓÃµÄ¿Õ°×ÊıÄ¿¡£ÓÃÓÚ 'cindent'¡¢>>¡¢<< µÈ¡£
+set shiftwidth=4 "(è‡ªåŠ¨) ç¼©è¿›æ¯ä¸€æ­¥ä½¿ç”¨çš„ç©ºç™½æ•°ç›®ã€‚ç”¨äº 'cindent'ã€>>ã€<< ç­‰ã€‚
 set tabstop=8
-set softtabstop=4 "Ö´ĞĞ±à¼­²Ù×÷£¬Èç²åÈë <Tab> »òÕßÊ¹ÓÃ <BS> Ê±£¬°Ñ <Tab> Ëã×÷4¸ö¿Õ¸ñ
+set softtabstop=4 "æ‰§è¡Œç¼–è¾‘æ“ä½œï¼Œå¦‚æ’å…¥ <Tab> æˆ–è€…ä½¿ç”¨ <BS> æ—¶ï¼ŒæŠŠ <Tab> ç®—ä½œ4ä¸ªç©ºæ ¼
 
 au FileType html,xml,sh,vim,php setlocal sw=2
 
@@ -271,9 +271,9 @@ au FileType html,xml,sh,vim,php setlocal sw=2
 set expandtab
 
 " Be smart when using tabs
-" Èç¹û´ò¿ª£¬ĞĞÊ×µÄ <Tab> ¸ù¾İ 'shiftwidth' ²åÈë¿Õ°×¡£'tabstop' »ò
-" 'softtabstop' ÓÃÔÚ±ğµÄµØ·½¡£<BS> É¾³ıĞĞÊ× 'shiftwidth' ÄÇÃ´¶àµÄ¿Õ°×¡£
-" Èç¹û¹Ø±Õ£¬<Tab> ×ÜÊÇ¸ù¾İ 'tabstop' »ò 'softtabstop' ¾ö¶¨²åÈë¿Õ°×µÄÊıÄ¿
+" å¦‚æœæ‰“å¼€ï¼Œè¡Œé¦–çš„ <Tab> æ ¹æ® 'shiftwidth' æ’å…¥ç©ºç™½ã€‚'tabstop' æˆ–
+" 'softtabstop' ç”¨åœ¨åˆ«çš„åœ°æ–¹ã€‚<BS> åˆ é™¤è¡Œé¦– 'shiftwidth' é‚£ä¹ˆå¤šçš„ç©ºç™½ã€‚
+" å¦‚æœå…³é—­ï¼Œ<Tab> æ€»æ˜¯æ ¹æ® 'tabstop' æˆ– 'softtabstop' å†³å®šæ’å…¥ç©ºç™½çš„æ•°ç›®
 set smarttab
 
 " Linebreak on 100 characters
@@ -283,37 +283,37 @@ set smarttab
 "set tw=78
 "set formatoptions+=mM
 "au filetype txt,text setlocal formatoptions=aw2qmM
-" ÎÄ±¾ÎÄ¼ş½ûÓÃ×Ô¶¯¶ÏĞĞ
+" æ–‡æœ¬æ–‡ä»¶ç¦ç”¨è‡ªåŠ¨æ–­è¡Œ
 au filetype txt,text setlocal tw=0
 
 set autoindent
 "set smartindent
 set cindent
 
-"½«C++×÷ÓÃÓòÉùÃ÷ÖÃÓÚÆäËùÔÚ´úÂë¿éµÄ0¸ö×Ö·ûºó¡£(È±Ê¡Îª'shiftwidth')¡£×÷ÓÃÓòÉùÃ÷
-"¿ÉÒÔÊÇ"public:","protected:"»òÕß"private:"
+"å°†C++ä½œç”¨åŸŸå£°æ˜ç½®äºå…¶æ‰€åœ¨ä»£ç å—çš„0ä¸ªå­—ç¬¦åã€‚(ç¼ºçœä¸º'shiftwidth')ã€‚ä½œç”¨åŸŸå£°æ˜
+"å¯ä»¥æ˜¯"public:","protected:"æˆ–è€…"private:"
 set cinoptions=g0,t0,(0,u0,w1,m1
-"±ê×¼µÄ GNU ±àÂë·ç¸ñµÄÉèÖÃ
+"æ ‡å‡†çš„ GNU ç¼–ç é£æ ¼çš„è®¾ç½®
 "set cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1 shiftwidth=2 tabstop=8
-"Ä¬ÈÏÖµ
+"é»˜è®¤å€¼
 "set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,b0,g0,hs,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,M0,j0,)20,*30,#0
 
 
-" ¿ØÖÆ»º³åÇøÇĞ»»µÄĞĞÎª
+" æ§åˆ¶ç¼“å†²åŒºåˆ‡æ¢çš„è¡Œä¸º
 try
   set switchbuf=useopen,usetab,newtab
-  " µ±¶àÓÚÒ»¸ö±êÇ©Ê±ÏÔÊ¾±êÇ©ĞĞ
+  " å½“å¤šäºä¸€ä¸ªæ ‡ç­¾æ—¶æ˜¾ç¤ºæ ‡ç­¾è¡Œ
   set stal=1
 catch
 endtry
 
-" ´ò¿ªÎÄ¼ş×Ô¶¯¶¨Î»µ½ÉÏ´Î¹â±êËùÔÚÎ»ÖÃ
+" æ‰“å¼€æ–‡ä»¶è‡ªåŠ¨å®šä½åˆ°ä¸Šæ¬¡å…‰æ ‡æ‰€åœ¨ä½ç½®
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal! g`\"" |
       \ endif
 
-" ÍË³öVimÊ±±£´æËùÓĞ»º´æÇøĞÅÏ¢£¬ÏÂ´Î´ò¿ªVim¿É»Ö¸´
+" é€€å‡ºVimæ—¶ä¿å­˜æ‰€æœ‰ç¼“å­˜åŒºä¿¡æ¯ï¼Œä¸‹æ¬¡æ‰“å¼€Vimå¯æ¢å¤
 "set viminfo^=%
 
 
@@ -334,7 +334,7 @@ set statusline+=\ %b,0x%B
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ÓĞÌõ¼şµØ×Ô¶¯´´½¨²»´æÔÚµÄÄ¿Â¼
+" æœ‰æ¡ä»¶åœ°è‡ªåŠ¨åˆ›å»ºä¸å­˜åœ¨çš„ç›®å½•
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup AutoMkdir
   autocmd!
@@ -345,27 +345,27 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Folding related
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ä¬ÈÏ¸ù¾İÓï·¨¸ßÁÁ½øĞĞÕÛµş
+" é»˜è®¤æ ¹æ®è¯­æ³•é«˜äº®è¿›è¡ŒæŠ˜å 
 set foldmethod=syntax
-" Ä¬ÈÏÕ¹¿ªËùÓĞÕÛµş
+" é»˜è®¤å±•å¼€æ‰€æœ‰æŠ˜å 
 set foldlevel=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => :TOhtml ×ª»»³ÉHTMLÃüÁîµÄÏà¹ØÉèÖÃ
+" => :TOhtml è½¬æ¢æˆHTMLå‘½ä»¤çš„ç›¸å…³è®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"²»Ê¹ÓÃcss
+"ä¸ä½¿ç”¨css
 let g:html_use_css = 0
-"ÖĞÎÄÖ§³Ö
+"ä¸­æ–‡æ”¯æŒ
 let g:html_use_encoding = "gb2312"
-"Ç¿ÖÆÈ¥µôĞĞºÅ
+"å¼ºåˆ¶å»æ‰è¡Œå·
 let g:html_number_lines = 0
-"Ç¿ÖÆ±àĞĞºÅ£¨¸ù¾İÒª×ª»»µÄÄÚÈİÖØĞÂ±àºÅ£©
+"å¼ºåˆ¶ç¼–è¡Œå·ï¼ˆæ ¹æ®è¦è½¬æ¢çš„å†…å®¹é‡æ–°ç¼–å·ï¼‰
 "let g:html_number_lines = 1
-"²ÉÓÃÄ¬ÈÏnumber Ñ¡ÏîÉèÖÃ
+"é‡‡ç”¨é»˜è®¤number é€‰é¡¹è®¾ç½®
 "unlet g:html_number_lines
-"ºöÂÔ´úÂëÕÛµş
+"å¿½ç•¥ä»£ç æŠ˜å 
 let g:html_ignore_folding = 1
-"²»Ê¹ÓÃxhtml
+"ä¸ä½¿ç”¨xhtml
 let g:use_xhtml = 0
 
 

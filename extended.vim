@@ -1,36 +1,36 @@
 "=============================================================================
 "      FileName: extended.vim
-"   Description: ´ËÎÄ¼şÓ³ÉäÁË²»ÉÙÓĞÓÃµÄ¿ì½İ¼ü£¬¿É´ó·ùÌá¸ßĞ§ÂÊ
-"                Ê¹ÓÃÇ°ÇëÈ·±£ÒÑ¼ÓÔØÁË»ù±¾ÅäÖÃÎÄ¼ş basic.vim
-"        Author: ÓÄ¹ÈÆæ·å( https://twitter.com/yysfirecn )
+"   Description: æ­¤æ–‡ä»¶æ˜ å°„äº†ä¸å°‘æœ‰ç”¨çš„å¿«æ·é”®ï¼Œå¯å¤§å¹…æé«˜æ•ˆç‡
+"                ä½¿ç”¨å‰è¯·ç¡®ä¿å·²åŠ è½½äº†åŸºæœ¬é…ç½®æ–‡ä»¶ basic.vim
+"        Author: å¹½è°·å¥‡å³°( https://twitter.com/yysfirecn )
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"   Last Update: 2014-07-03 23:27
+"   Last Update: 2014-07-04 00:21
 "=============================================================================
-" ¿ì½İ¼üµÄÇ°µ¼¼üÉèÎª¶ººÅ£¬Ä¬ÈÏÖµÊÇ·´Ğ±¸Ü '\'
+" å¿«æ·é”®çš„å‰å¯¼é”®è®¾ä¸ºé€—å·ï¼Œé»˜è®¤å€¼æ˜¯åæ–œæ  '\'
 let mapleader = ","
 let g:mapleader = ","
 
-" ·ÖºÅÒ²¿É½øÈëEXÃüÁîÄ£Ê½
+" åˆ†å·ä¹Ÿå¯è¿›å…¥EXå‘½ä»¤æ¨¡å¼
 nnoremap ; :
 
-" ¿ìËÙ±£´æ
+" å¿«é€Ÿä¿å­˜
 nmap <silent> <leader>w :w<cr>
 nmap <silent> <leader>wf :w!<cr>
-" ¿ìËÙÍË³ö
+" å¿«é€Ÿé€€å‡º
 nmap <Leader>qw :w<CR><Esc>:call CustomExit()<CR>
 nmap <Leader>q  :call CustomExit()<CR>
 nmap <Leader>qf <Esc>:call CustomExit()!<CR>
 
-" ¿ìËÙÇĞ»»ÎÄ¼ş±àÂë¸ñÊ½
+" å¿«é€Ÿåˆ‡æ¢æ–‡ä»¶ç¼–ç æ ¼å¼
 nmap <leader>fd :se ff=dos<cr>
 nmap <leader>fu :se ff=unix<cr>
 nmap <leader>fm :se ff=mac<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ×î´ó»¯ÓëÈ«ÆÁÇĞ»»
+" => æœ€å¤§åŒ–ä¸å…¨å±åˆ‡æ¢
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if g:ostype=='windows' && has('gui_running')
   let g:ScreenFlag = "Nomal"
@@ -48,7 +48,7 @@ if g:ostype=='windows' && has('gui_running')
       simalt ~x
     endif
   endfunction
-  "F11 ¼üÊ¹gvim ÔÚÈ«ÆÁºÍÆÕÍ¨Ä£Ê½¼äÇĞ»»
+  "F11 é”®ä½¿gvim åœ¨å…¨å±å’Œæ™®é€šæ¨¡å¼é—´åˆ‡æ¢
   map <F11> :call ToggleScreen()<CR>
   imap <F11> <Esc>:call ToggleScreen()<CR>
   map <C-F11> :call libcallnr("vimtweak.dll", "SetAlpha", 200)<CR>
@@ -63,7 +63,7 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ¿ìËÙ±à¼­ºÍÖØÔØÅäÖÃÎÄ¼ş
+" => å¿«é€Ÿç¼–è¾‘å’Œé‡è½½é…ç½®æ–‡ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if g:ostype=='unix'
   map <silent> <leader>ee :e $VIMHOME/.vimrc<cr>
@@ -83,7 +83,7 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ×Ô¶¯¸üĞÂÎÄ¼şµÄ×îºóĞŞ¸ÄÊ±¼ä
+" è‡ªåŠ¨æ›´æ–°æ–‡ä»¶çš„æœ€åä¿®æ”¹æ—¶é—´
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup AutoUpdateChageTime
   au!
@@ -106,59 +106,59 @@ endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ÔÚ»º³åÇø¡¢±êÇ©¡¢´°¿ÚÖĞÒÆ¶¯ºÍÇĞ»»
+" => åœ¨ç¼“å†²åŒºã€æ ‡ç­¾ã€çª—å£ä¸­ç§»åŠ¨å’Œåˆ‡æ¢
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ê¹j/kÄÜÔÚÒ»¸ö³¤ĞĞµÄ×Ô¶¯¶ÏĞĞ¼äÒÆ¶¯
+" ä½¿j/kèƒ½åœ¨ä¸€ä¸ªé•¿è¡Œçš„è‡ªåŠ¨æ–­è¡Œé—´ç§»åŠ¨
 "map j gj
 "map k gk
 
-" È¥µôËÑË÷²úÉúµÄ¸ßÁÁ
+" å»æ‰æœç´¢äº§ç”Ÿçš„é«˜äº®
 map <silent> <leader><cr> :noh<cr>
 
-" ÔÚ·Ö¸î´°¿Ú¼äÇĞ»»
+" åœ¨åˆ†å‰²çª—å£é—´åˆ‡æ¢
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" ÔÚ»º³åÇø¼äÇĞ»»
+" åœ¨ç¼“å†²åŒºé—´åˆ‡æ¢
 noremap <leader>bn :bnext!<CR>
 noremap <leader>bp :bprev!<CR>
 
-" Ğ¶ÔØµ±Ç°»º³åÇø
+" å¸è½½å½“å‰ç¼“å†²åŒº
 map <leader>bd :call vimrcfunc#extend#BufcloseCloseIt()<cr>
-" Ğ¶ÔØËùÓĞ»º³åÇø,µ«²»ÍË³öVim
+" å¸è½½æ‰€æœ‰ç¼“å†²åŒº,ä½†ä¸é€€å‡ºVim
 "map <leader>ba :1,1000 bd!<cr>
 map <leader>ba :1,1000 bd<cr>
 
-" ĞÂ½¨±êÇ©
+" æ–°å»ºæ ‡ç­¾
 map <leader>tn :tabnew<cr>
-" ¹Ø±Õµ±Ç°±êÇ©
+" å…³é—­å½“å‰æ ‡ç­¾
 map <leader>tc :tabclose<cr>
-" ¹Ø±ÕÆäËûËùÓĞ±êÇ©
+" å…³é—­å…¶ä»–æ‰€æœ‰æ ‡ç­¾
 map <leader>to :tabonly<cr>
-" ÒÆ¶¯±êÇ©
+" ç§»åŠ¨æ ‡ç­¾
 map <leader>tm :tabmove
-" ÒÔµ±Ç°»º³åÇøµÄÂ·¾¶Îª¹¤×÷Â·¾¶´ò¿ªĞÂ±êÇ©Ò³£¬
-" µ±ÏëÔÚÍ¬Ò»Ä¿Â¼ÏÂ±à¼­ÎÄ¼şÊ±ºÜÓĞÓÃ
+" ä»¥å½“å‰ç¼“å†²åŒºçš„è·¯å¾„ä¸ºå·¥ä½œè·¯å¾„æ‰“å¼€æ–°æ ‡ç­¾é¡µï¼Œ
+" å½“æƒ³åœ¨åŒä¸€ç›®å½•ä¸‹ç¼–è¾‘æ–‡ä»¶æ—¶å¾ˆæœ‰ç”¨
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-" ½«µ±Ç°´°¿ÚµÄ¹¤×÷Â·¾¶ÉèÖÃÎªµ±Ç°ÎÄ¼şËùÔÚÄ¿Â¼
+" å°†å½“å‰çª—å£çš„å·¥ä½œè·¯å¾„è®¾ç½®ä¸ºå½“å‰æ–‡ä»¶æ‰€åœ¨ç›®å½•
 map <leader>lc :lcd %:p:h<cr>:pwd<cr>
-" ×Ô¶¯½«µ±Ç°´°¿ÚµÄ¹¤×÷Â·¾¶ÉèÖÃÎªµ±Ç°ÎÄ¼şËùÔÚÄ¿Â¼
+" è‡ªåŠ¨å°†å½“å‰çª—å£çš„å·¥ä½œè·¯å¾„è®¾ç½®ä¸ºå½“å‰æ–‡ä»¶æ‰€åœ¨ç›®å½•
 autocmd BufEnter * lcd %:p:h
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ò»Ğ©ÓĞÓÃµÄÓ³Éä
+" => ä¸€äº›æœ‰ç”¨çš„æ˜ å°„
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NormalºÍ¿ÉÊÓÄ£Ê½ÏÂÓÃ ALT+[jk] ÉÏÏÂÒÆ¶¯ÎÄ±¾ĞĞ
+" Normalå’Œå¯è§†æ¨¡å¼ä¸‹ç”¨ ALT+[jk] ä¸Šä¸‹ç§»åŠ¨æ–‡æœ¬è¡Œ
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-" MAC ÉÏÓÃ Comamnd+[jk]
+" MAC ä¸Šç”¨ Comamnd+[jk]
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
   nmap <D-k> <M-k>
@@ -166,32 +166,32 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Ğ´Èë»º³åÇøÊ±ÒÆ³ıĞĞÎ²µÄ¶àÓà¿Õ¸ñ£¬diffÎÄ¼ş³ıÍâ
+" å†™å…¥ç¼“å†²åŒºæ—¶ç§»é™¤è¡Œå°¾çš„å¤šä½™ç©ºæ ¼ï¼Œdiffæ–‡ä»¶é™¤å¤–
 autocmd BufWrite *.py :call vimrcfunc#extend#RemoveTrailingWhitespace()
 nmap <leader>dw :call vimrcfunc#extend#RemoveTrailingWhitespace()<cr>
 
-" ÒÆ³ıÎÄµµÖĞµÄ ^M ·ûºÅ
+" ç§»é™¤æ–‡æ¡£ä¸­çš„ ^M ç¬¦å·
 noremap <Leader>dm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scripbble
 "map <leader>q :e ~/buffer<cr>
 
-" ¿ìËÙÇĞ»»Õ³ÌùÄ£Ê½µÄ¿ªÓë¹Ø
+" å¿«é€Ÿåˆ‡æ¢ç²˜è´´æ¨¡å¼çš„å¼€ä¸å…³
 map <leader>pp :setlocal paste!<cr>
 
 
 """"""""""""""""""""""""""""""
-" => ¿ÉÊÓÄ£Ê½ÏÂµÄËÑË÷
+" => å¯è§†æ¨¡å¼ä¸‹çš„æœç´¢
 """"""""""""""""""""""""""""""
-" Ñ¡ÖĞÒ»¶ÎÎÄ×Ö,°´ * ºÍ # À´È«ÎÄËÑË÷Õâ¶ÎÎÄ×Ö
+" é€‰ä¸­ä¸€æ®µæ–‡å­—,æŒ‰ * å’Œ # æ¥å…¨æ–‡æœç´¢è¿™æ®µæ–‡å­—
 vnoremap <silent> * :call vimrcfunc#extend#VisualSelection('f')<CR>
 vnoremap <silent> # :call vimrcfunc#extend#VisualSelection('b')<CR>
-" µÚ¶şÖÖÊµÏÖ·½Ê½
+" ç¬¬äºŒç§å®ç°æ–¹å¼
 "vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " When you press gv you vimgrep after the selected text
-" °´ gv À´ vimgrep Ñ¡ÖĞµÄÎÄ±¾
+" æŒ‰ gv æ¥ vimgrep é€‰ä¸­çš„æ–‡æœ¬
 vnoremap <silent> gv :call vimrcfunc#extend#VisualSelection('gv')<CR>
 
 " Open vimgrep and put the cursor in the right position
@@ -216,16 +216,16 @@ vnoremap <silent> <leader>rs :call vimrcfunc#extend#VisualSelection('replace')<C
 "
 "map <leader>cp :botright cope<cr>
 
-" ²»ÓÃ<leader>cn,±ÜÃâºÍnerdcomment²å¼şµÄÏà³åÍ»
+" ä¸ç”¨<leader>cn,é¿å…å’Œnerdcommentæ’ä»¶çš„ç›¸å†²çª
 map <leader>cx :cn<cr>
 map <leader>cp :cp<cr>
 
-" ½«quickfix´°¿ÚµÄĞÅÏ¢¸´ÖÆÕ³Ìùµ½ĞÂ±êÇ©Àï
+" å°†quickfixçª—å£çš„ä¿¡æ¯å¤åˆ¶ç²˜è´´åˆ°æ–°æ ‡ç­¾é‡Œ
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ¿ØÖÆÌ¨µÄÏà¹ØÓ³Éä
+" => æ§åˆ¶å°çš„ç›¸å…³æ˜ å°„
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart mappings on the command line
 cno $h e ~/
@@ -266,7 +266,7 @@ inoremap $t <><esc>i
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ËõĞ´
+" => ç¼©å†™
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "iab time <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
 
@@ -283,36 +283,36 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ¼ò·±×ª»»£¬ÒªÇóÓĞ¹¤¾ßcconv
+" => ç®€ç¹è½¬æ¢ï¼Œè¦æ±‚æœ‰å·¥å…·cconv
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ¼òÌå×ª·±Ìå
+" ç®€ä½“è½¬ç¹ä½“
 command! G2b :%!cconv -f UTF8-CN -t UTF8-HK
-" ·±Ìå×ª¼òÌå
+" ç¹ä½“è½¬ç®€ä½“
 command! B2g :%!cconv -f UTF8-HK -t UTF8-CN
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Æ´Ğ´¼ì²é
+" => æ‹¼å†™æ£€æŸ¥
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ,sl Æô¶¯»ò¹Ø±ÕÆ´Ğ´¼ì²é
+" ,sl å¯åŠ¨æˆ–å…³é—­æ‹¼å†™æ£€æŸ¥
 map <leader>sl :setlocal spell!<cr>
 
-" ÒÆµ½ÏÂÒ»¸öÆ´Ğ´´íÎóµÄµ¥´Ê
+" ç§»åˆ°ä¸‹ä¸€ä¸ªæ‹¼å†™é”™è¯¯çš„å•è¯
 map <leader>sn ]s
-" ÒÆµ½ÉÏÒ»¸öÆ´Ğ´´íÎóµÄµ¥´Ê
+" ç§»åˆ°ä¸Šä¸€ä¸ªæ‹¼å†™é”™è¯¯çš„å•è¯
 map <leader>sp [s
-" ¸æËßÆ´Ğ´¼ì²éÆ÷¸Ãµ¥´ÊÊÇÆ´Ğ´ÕıÈ·µÄ
+" å‘Šè¯‰æ‹¼å†™æ£€æŸ¥å™¨è¯¥å•è¯æ˜¯æ‹¼å†™æ­£ç¡®çš„
 map <leader>si zg
-" ¸æËßÆ´Ğ´¼ì²éÆ÷¸Ãµ¥´ÊÊÇÆ´Ğ´´íÎóµÄ
+" å‘Šè¯‰æ‹¼å†™æ£€æŸ¥å™¨è¯¥å•è¯æ˜¯æ‹¼å†™é”™è¯¯çš„
 map <leader>sw zw
-" ÏÔÊ¾Ò»¸öÓĞ¹ØÆ´Ğ´´íÎóµ¥´ÊµÄÁĞ±í£¬¿É´ÓÖĞÑ¡Ôñ
+" æ˜¾ç¤ºä¸€ä¸ªæœ‰å…³æ‹¼å†™é”™è¯¯å•è¯çš„åˆ—è¡¨ï¼Œå¯ä»ä¸­é€‰æ‹©
 map <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Èç¹ûÖ»ÓĞÒ»¸ö»º³åÇø£¬¾ÍÖ±½ÓÍË³ö£»·ñÔò£¬¾ÍÖ»Ğ¶ÔØµ±Ç°»º³åÇø
+" å¦‚æœåªæœ‰ä¸€ä¸ªç¼“å†²åŒºï¼Œå°±ç›´æ¥é€€å‡ºï¼›å¦åˆ™ï¼Œå°±åªå¸è½½å½“å‰ç¼“å†²åŒº
 function! CustomExit()
   if (winbufnr(2) == -1)
     q

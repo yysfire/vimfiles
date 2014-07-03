@@ -1,12 +1,11 @@
 "=============================================================================
 "      FileName: plugins_config.vim
-"   Description: ²å¼şµÄÏà¹ØÅäÖÃ£¬ÇëÈ·±£ÖÁÉÙÒÑ¼ÓÔØ basic.vim
-"        Author: ÓÄ¹ÈÆæ·å( https://twitter.com/yysfirecn )
+"   Description: æ’ä»¶çš„ç›¸å…³é…ç½®ï¼Œè¯·ç¡®ä¿è‡³å°‘å·²åŠ è½½ basic.vim
+"        Author: å¹½è°·å¥‡å³°( https://twitter.com/yysfirecn )
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
-"       Version: 3.5
-"  Last Changed: 2014-07-03 07:43
-"       History:
+"       Version: 4.5
+"  Last Changed: 2014-07-04 00:21
 "=============================================================================
 
 filetype off                  " required
@@ -179,16 +178,16 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃTxtBrowser ²å¼ş
+"è®¾ç½®TxtBrowser æ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"µ±ÇĞ»»µ½°ïÖúbufferÊ±£¬»á¸Ä±äÆä¸ßÁÁÉèÖÃ
+"å½“åˆ‡æ¢åˆ°å¸®åŠ©bufferæ—¶ï¼Œä¼šæ”¹å˜å…¶é«˜äº®è®¾ç½®
 "autocmd BufEnter,WinEnter,BufNewFile,BufRead *.txt setlocal ft=txt
 
 au BufNewFile,BufRead *.txt setlocal ft=txt
 au BufRead,BufNewFile *.log setlocal ft=txt
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃColorV²å¼ş
+"è®¾ç½®ColorVæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Auto Preview color-text in *.css files.  Auto update view after write file.
 "let g:ColorV_prev_css=1
@@ -196,23 +195,23 @@ let g:colorv_preview_ftype = 'css,html,javascript,vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃauthorinfo²å¼ş
+"è®¾ç½®authorinfoæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimrc_author='ÓÄ¹ÈÆæ·å( https://twitter.com/yysfirecn )'
+let g:vimrc_author='å¹½è°·å¥‡å³°( https://twitter.com/yysfirecn )'
 let g:vimrc_email='yysfire[at]gmail.com'
 let g:vimrc_homepage='http://yysfire.github.com'
 nmap <F4> :AuthorInfoDetect<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃvimwiki²å¼ş
+"è®¾ç½®vimwikiæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
 au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
 au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
 au filetype vimwiki setl tw=0
 
-" ¶à¸öÎ¬»ùÏîÄ¿µÄÅäÖÃ
+" å¤šä¸ªç»´åŸºé¡¹ç›®çš„é…ç½®
 let wiki_1 = {}
 let wiki_1.path = '$VIMHOME/VimWiki/public/wiki/'
 let wiki_1.path_html = '$VIMHOME/VimWiki/public/html/'
@@ -233,10 +232,10 @@ let wiki_2.index = 'main'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
 
-" ÉèÖÃ±àÂë
+" è®¾ç½®ç¼–ç 
 let g:vimwiki_w32_dir_enc = 'utf-8'
 
-" Ê¹ÓÃÊó±êÓ³Éä
+" ä½¿ç”¨é¼ æ ‡æ˜ å°„
 let g:vimwiki_use_mouse = 1
 
 "Use VimwikiHeader1-VimwikiHeader6 group colors to highlight
@@ -245,22 +244,22 @@ let g:vimwiki_hl_headers=1
 " Checked list items can be highlighted with a color
 let g:vimwiki_hl_cb_checked = 1
 
-" ÎÒµÄ vim ÊÇÃ»ÓĞ²Ëµ¥µÄ£¬¼ÓÒ»¸ö vimwiki ²Ëµ¥ÏîÒ²Ã»ÓĞÒâÒå
+" æˆ‘çš„ vim æ˜¯æ²¡æœ‰èœå•çš„ï¼ŒåŠ ä¸€ä¸ª vimwiki èœå•é¡¹ä¹Ÿæ²¡æœ‰æ„ä¹‰
 let g:vimwiki_menu = ''
 
-" ÊÇ·ñÔÚ¼ÆËã×Ö´®³¤¶ÈÊ±ÓÃÌØ±ğ¿¼ÂÇÖĞÎÄ×Ö·û
+" æ˜¯å¦åœ¨è®¡ç®—å­—ä¸²é•¿åº¦æ—¶ç”¨ç‰¹åˆ«è€ƒè™‘ä¸­æ–‡å­—ç¬¦
 let g:vimwiki_CJK_length = 1
 
-" ÉùÃ÷¿ÉÒÔÔÚwikiÀïÃæÊ¹ÓÃµÄHTML±êÇ©
+" å£°æ˜å¯ä»¥åœ¨wikié‡Œé¢ä½¿ç”¨çš„HTMLæ ‡ç­¾
 "let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,red,center,left,right'
 let g:vimwiki_valid_html_tags=''
 
-" 'path_html'Â·¾¶ÏÂµÄÕâĞ©ÎÄ¼ş²»»á±»ÃüÁî:VimwikiAll2HTML×Ô¶¯É¾³ı
+" 'path_html'è·¯å¾„ä¸‹çš„è¿™äº›æ–‡ä»¶ä¸ä¼šè¢«å‘½ä»¤:VimwikiAll2HTMLè‡ªåŠ¨åˆ é™¤
 let g:vimwiki_user_htmls = '404.html,search.html,google8befba0c77dd0855.html'
 
-" ´Ó2¼¶±êÌâ¿ªÊ¼×Ô¶¯¸ø±êÌâ±àºÅ
+" ä»2çº§æ ‡é¢˜å¼€å§‹è‡ªåŠ¨ç»™æ ‡é¢˜ç¼–å·
 "let g:vimwiki_html_header_numbering=2
-" ±êÌâ±àºÅºó¸ú')'
+" æ ‡é¢˜ç¼–å·åè·Ÿ')'
 "let g:vimwiki_html_header_numbering_sym=' '
 
 "let g:vimwiki_browsers=['firefox']
@@ -271,7 +270,7 @@ let g:vimwiki_ext2syntax = {'.wiki': 'media'}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃfcitx²å¼ş
+"è®¾ç½®fcitxæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "if g:ostype=='unix'
     ""##### auto fcitx  ###########
@@ -293,16 +292,16 @@ let g:vimwiki_ext2syntax = {'.wiki': 'media'}
     "endfunction
 
     "set ttimeoutlen=150
-    ""ÍË³ö²åÈëÄ£Ê½
+    ""é€€å‡ºæ’å…¥æ¨¡å¼
     ""autocmd InsertLeave * call Fcitx2en()
-    ""½øÈë²åÈëÄ£Ê½
+    ""è¿›å…¥æ’å…¥æ¨¡å¼
     ""autocmd InsertEnter * call Fcitx2zh()
     ""##### auto fcitx end ######
 "endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃxptemplate²å¼ş
+"è®¾ç½®xptemplateæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:xptemplate_key = '<TAB>'
 
@@ -334,7 +333,7 @@ let g:gist_open_browser_after_post = 1
 " Designed primarily for a graphical Vim, but includes support for 256, 88,
 " 16, and 8 color terminals. On a 16 or 8 color terminal, replace its colors
 " with those in  ansi-term-colors.txt  for best results.
-" If you can¡¯t or don¡¯t want to change your terminal¡¯s color mappings,d:
+" If you canâ€™t or donâ€™t want to change your terminalâ€™s color mappings,d:
 "if (!has("gui_running"))
   "let g:jellybeans_use_lowcolor_black = 0
 "endif

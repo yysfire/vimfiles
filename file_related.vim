@@ -1,16 +1,16 @@
 "=============================================================================
 "      FileName: file_related.vim
-"   Description: ÓëÖ¸¶¨ÎÄ¼şÏà¹ØµÄÅäÖÃ£¬ÇëÈ·±£ÖÁÉÙÒÑ¼ÓÔØ basic.vim
-"        Author: ÓÄ¹ÈÆæ·å( https://twitter.com/yysfirecn )
+"   Description: ä¸æŒ‡å®šæ–‡ä»¶ç›¸å…³çš„é…ç½®ï¼Œè¯·ç¡®ä¿è‡³å°‘å·²åŠ è½½ basic.vim
+"        Author: å¹½è°·å¥‡å³°( https://twitter.com/yysfirecn )
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
-"       Version: 6.0
-"  Last Changed: 2014-07-03 08:23
+"       Version: 4.5
+"  Last Changed: 2014-07-04 00:21
 "=============================================================================
 """"""""""""""""""""""""""""""
-" => ¸ù¾İÎÄ¼şÀ©Õ¹ÃûÔØÈëÄ£°åÎÄ¼ş
+" => æ ¹æ®æ–‡ä»¶æ‰©å±•åè½½å…¥æ¨¡æ¿æ–‡ä»¶
 """"""""""""""""""""""""""""""
-" ½ûÓÃ£¬ÒÑ°²×°load_template²å¼ş
+" ç¦ç”¨ï¼Œå·²å®‰è£…load_templateæ’ä»¶
 "au! BufNewFile * silent! 0r $VIMFILES/templates/template.%:e
 
 """"""""""""""""""""""""""""""
@@ -24,10 +24,10 @@ let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=72
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-"ÒÔËõ½øÎª´úÂëÕÛµşµÄÒÀ¾İ
+"ä»¥ç¼©è¿›ä¸ºä»£ç æŠ˜å çš„ä¾æ®
 "au FileType python map <buffer> F :setlocal foldmethod=indent<cr>
 au FileType python setlocal foldmethod=indent
-"Ä¬ÈÏÕ¹¿ªËùÓĞ´úÂë
+"é»˜è®¤å±•å¼€æ‰€æœ‰ä»£ç 
 au FileType python setlocal foldlevel=99
 
 au FileType python inoremap <buffer> $r return 
@@ -148,5 +148,5 @@ function! DosiniFoldexp()
 endfunction
 
 
-"ÉèÖÃa51 ÎÄ¼şÓï·¨¸ßÁÁ
+"è®¾ç½®a51 æ–‡ä»¶è¯­æ³•é«˜äº®
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
