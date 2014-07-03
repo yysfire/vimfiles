@@ -1,0 +1,3 @@
+[submodule "TxtBrowser"]
+	path = TxtBrowser
+	url = git@github.com:yysfire/TxtBrowser.git
