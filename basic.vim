@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-03 14:18
+"  Last Changed: 2014-07-04 00:17
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -177,10 +177,8 @@ endif
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 if (g:ostype=='windows'||has("win32unix"))
-  set fenc=cp936
   set termencoding=cp936
 else
-  set fenc=utf-8
   set termencoding=utf-8
 endif
 
