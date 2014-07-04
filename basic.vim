@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 00:22
+"  Last Changed: 2014-07-04 19:11
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -109,17 +109,17 @@ set tm=500
 syntax enable
 
 " 在xterm和screen下支持256色
-"if (&term =~ "xterm") || (&term =~ "screen")
-"set t_Co=256
-"endif
+if !has('gui_running') && (&term =~ "xterm") || (&term =~ "screen")
+  set t_Co=256
+endif
 
-"enable 256 colors in ConEmu on Win
-"if !has('gui_running') && !empty($ConEmuBuild)
-"set term=xterm
-"set t_Co=256
-"let &t_AB="\e[48;5;%dm"
-"let &t_AF="\e[38;5;%dm"
-"endif
+"enable 16 colors in ConEmu
+if !has('gui_running') && !empty($ConEmuBuild)
+  "set term=xterm
+  set t_Co=16
+  "let &t_AB="\e[48;5;%dm"
+  "let &t_AF="\e[38;5;%dm"
+endif
 
 colors sonoma
 
