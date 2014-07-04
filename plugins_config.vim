@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 00:21
+"  Last Changed: 2014-07-04 19:15
 "=============================================================================
 
 filetype off                  " required
@@ -363,4 +363,4 @@ colors molokai
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-airline plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
