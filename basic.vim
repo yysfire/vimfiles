@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 19:11
+"  Last Changed: 2014-07-04 21:32
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -202,6 +202,8 @@ if has("gui_running")
   set langmenu=zh_CN.utf-8
 endif
 
+"Set UTF-8 as the default encoding for commit messages
+autocmd BufReadPre COMMIT_EDITMSG,git-rebase-todo setlocal fileencodings=utf-8
 
 "Favorite fileformats
 if g:ostype=='windows'
