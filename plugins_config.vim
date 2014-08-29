@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 19:15
+"  Last Changed: 2014-07-06 15:38
 "=============================================================================
 
 filetype off                  " required
@@ -107,7 +107,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Local plugins
-set rtp+=$VIMFILES/TxtBrowser-yysfire/
+set rtp+=$VIMFILES/TxtBrowser/
 set rtp+=$VIMFILES/vimcdoc/
 
 

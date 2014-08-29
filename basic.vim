@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 21:32
+"  Last Changed: 2014-07-25 15:24
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -176,7 +176,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-if (g:ostype=='windows'||has("win32unix"))
+if (g:ostype=='windows' || (has("win32unix")&&empty($ConEmuBuild)))
   set termencoding=cp936
 else
   set termencoding=utf-8
@@ -189,9 +189,7 @@ endif
 " Set helplang
 set helplang=cn
 
-if !has("gui_running")
-  language message en_US.utf-8
-else
+if has("gui_running")
   language message zh_CN.utf-8
 endif
 
@@ -203,7 +201,8 @@ if has("gui_running")
 endif
 
 "Set UTF-8 as the default encoding for commit messages
-autocmd BufReadPre COMMIT_EDITMSG,git-rebase-todo setlocal fileencodings=utf-8
+"autocmd BufNewFile,BufReadPre COMMIT_EDITMSG,git-rebase-todo setlocal fileencodings=utf-8
+autocmd BufNewFile,BufReadPost,BufWritePre,FileWritePre COMMIT_EDITMSG,git-rebase-todo setlocal fileencoding=utf-8
 
 "Favorite fileformats
 if g:ostype=='windows'
@@ -241,7 +240,7 @@ set backupext=.bak
 "给备份文件名加上时间戳，就可实现多版本控制
 au BufWritePre * let &bex = '-' . strftime("%Y%m%d-%H%M%S") . '.bak'
 "在备份文件目录创建所编辑文件的原始备份
-set patchmode=.orig
+"set patchmode=.orig
 set backupskip+=.gitignore,.hgignore
 
 
