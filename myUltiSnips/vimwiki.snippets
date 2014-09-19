@@ -1,0 +1,122 @@
+priority -50
+
+###########################
+# Headers #
+###########################
+snippet hl1 "Header Level 1" b
+= ${1:Header Level 1} =
+$0
+endsnippet
+
+snippet hl2 "Header Level 2" b
+== ${1:Header Level 2} ==
+$0
+endsnippet
+
+snippet hl3 "Header Level 3" b
+=== ${1:Header Level 3} ===
+$0
+endsnippet
+
+snippet hl4 "Header Level 4" b
+==== ${1:Header Level 4} ====
+$0
+endsnippet
+
+snippet hl5 "Header Level 5" b
+===== ${1:Header Level 5} =====
+$0
+endsnippet
+
+snippet hl6 "Header Level 6" b
+====== ${1:Header Level 6} ======
+$0
+endsnippet
+
+################
+# Common stuff #
+################
+snippet meta "Meta Section" b
+%title ${1:title}
+%template ${2:misc}
+%% Date: `!v strftime("%Y-%m-%d %H:%M:%S")`
+%% Modified: `!v strftime("%Y-%m-%d %H:%M:%S")`
+%% Tags: ${3:VimWiki}
+%% Slug: ${4:`!v vim_snippets#Filename('$1', 'name')`}
+%toc
+
+= $1 =
+$5
+$0
+endsnippet
+
+snippet ilc "Inline Code" i
+\`$1\`$0
+endsnippet
+
+snippet cbl "Codeblock" b
+\{\{\{
+$1
+\}\}\}
+$0
+endsnippet
+
+snippet cbl "Codeblock with Brush" b
+\{\{\{class="brush:${2:text}"
+$1
+\}\}\}
+$0
+endsnippet
+
+snippet ilm "Inline Math Formula" i
+\$ $1 \$$0
+endsnippet
+
+snippet blm "Block Display Math Formula"
+    \{\{\$
+    $1
+    \}\}\$
+$0
+endsnippet
+
+snippet blm "Block Environment for Math Formula"
+    \{\{\$%${1:align}%
+    $2
+    \}\}\$
+$0
+endsnippet
+
+snippet hr "Horizontal line" b
+------------------------------------------------------------------------------
+$0
+endsnippet
+
+snippet inw "Interwiki Link"
+[[wiki${1:1}:${2:link source}|${3:Description}]]$0
+endsnippet
+
+snippet link "Link"
+[[${3:http://${2:www.url.com}}|${1:${VISUAL:Text}}]]$0
+endsnippet
+
+snippet link "Markdown Link"
+[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}})$0
+endsnippet
+
+snippet img "Image with alternate text"
+\{\{${1:path}|${2:opt title}\}\}$0
+endsnippet
+
+snippet img "Image with alternate text and some style"
+\{\{${1:path}|${2:opt title}|${5:style="width:${3:300}px; height:${4:auto}px;"}\}\}$0
+endsnippet
+
+snippet img "Markdown Image"
+![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+endsnippet
+
+snippet thn "Thumbnail links"
+[[${1:http://someaddr.com/bigpicture.jpg}|\{\{${2:http://someaddr.com/thumbnail.jpg}\}\}]]$0
+endsnippet
+
+# vim:ft=snippets:
