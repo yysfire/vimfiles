@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-04 00:21
+"  Last Changed: 2014-09-20 01:12
 "=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
@@ -22,7 +22,7 @@
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
-au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=72
+au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=0
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 "以缩进为代码折叠的依据
 "au FileType python map <buffer> F :setlocal foldmethod=indent<cr>
@@ -119,6 +119,7 @@ function! JavaScriptFold()
   setl foldtext=FoldText()
 endfunction
 
+
 """"""""""""""""""""""""""""""
 " => PHP section
 """"""""""""""""""""""""""""""
@@ -132,6 +133,7 @@ au filetype php imap <F5> <ESC>:call vimrcfunc#php#CheckPHPSyntax()<CR>
 " Run a PHP script
 au filetype php map <C-F5> :call vimrcfunc#php#ExecutePHPScript()<CR>
 au filetype php imap <C-F5> <ESC>:call vimrcfunc#php#ExecutePHPScript()<CR>
+
 
 """"""""""""""""""""""""""""""
 " => ini section
@@ -148,5 +150,13 @@ function! DosiniFoldexp()
 endfunction
 
 
+""""""""""""""""""""""""""""""
 "设置a51 文件语法高亮
+""""""""""""""""""""""""""""""
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
+
+
+""""""""""""""""""""""""""""""
+" => markdown section
+""""""""""""""""""""""""""""""
+au FileType markdown,mkd setl fdl=1

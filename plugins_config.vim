@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 4.5
-"  Last Changed: 2014-07-06 15:38
+"  Last Changed: 2014-09-20 01:49
 "=============================================================================
 
 filetype off                  " required
@@ -23,6 +23,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 "Alternate Files quickly (.c --> .h etc)
 Plugin 'a.vim'
+"A fancy start screen for Vim.
+Plugin 'mhinz/vim-startify'
 
 " Code Completion Section
 if has("python") || has("python3")
@@ -35,7 +37,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
 "Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plugin 'Raimondi/delimitMate'
-"Plugin 'vim-scripts/xptemplate'
 
 "Surround.vim: quoting/parenthesizing made simple
 Plugin 'tpope/vim-surround'
@@ -108,7 +109,15 @@ filetype plugin indent on    " required
 
 " Local plugins
 set rtp+=$VIMFILES/TxtBrowser/
-set rtp+=$VIMFILES/vimcdoc/
+"set rtp+=$VIMFILES/vimcdoc/
+"set rtp+=$VIMFILES/vimwiki2markdown/
+set rtp+=$VIMFILES/localbundle/*/
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => delimitMate plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au FileType mkd,markdown,javascript,scala,textile,zsh,puppet,htmldjango,htmltornado,django,jinja2,ocaml let b:delimitMate_autoclose = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -122,6 +131,11 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 let g:ctrlp_working_path_mode = 'ra'
+if (g:ostype=='windows' && !has("win32unix"))
+  let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+else
+  let g:ctrlp_user_command = 'find %s -type f'
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => tagbar plugin setting
@@ -169,13 +183,14 @@ nnoremap <leader>ud :GundoToggle<CR>
 " => Ultisnips plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置TxtBrowser 插件
@@ -215,8 +230,8 @@ au filetype vimwiki setl tw=0
 let wiki_1 = {}
 let wiki_1.path = '$VIMHOME/VimWiki/public/wiki/'
 let wiki_1.path_html = '$VIMHOME/VimWiki/public/html/'
-let wiki_1.template_path = '$VIMHOME/VimWiki/public/wiki/template/'
-let wiki_1.template_default = 'default_template'
+let wiki_1.template_path = '$VIMHOME/VimWiki/public/vimwiki_template/'
+let wiki_1.template_default = 'misc'
 let wiki_1.template_ext = '.html'
 let wiki_1.nested_syntaxes = {'asm': 'asm', 'c': 'c', 'cpp': 'cpp',
             \ 'css': 'css', 'js': 'javascript',
@@ -264,9 +279,11 @@ let g:vimwiki_user_htmls = '404.html,search.html,google8befba0c77dd0855.html'
 
 "let g:vimwiki_browsers=['firefox']
 
-let g:vimwiki_ext2syntax = {'.wiki': 'media'}
+"let g:vimwiki_ext2syntax = {'.md': 'mkd',
+      "\ '.mkd': 'mkd',
+      "\ '.markdown': 'mkd'}
 
-"let g:vimwiki_dir_link='main'
+let g:vimwiki_dir_link='main'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -298,12 +315,6 @@ let g:vimwiki_ext2syntax = {'.wiki': 'media'}
     ""autocmd InsertEnter * call Fcitx2zh()
     ""##### auto fcitx end ######
 "endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置xptemplate插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:xptemplate_key = '<TAB>'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
