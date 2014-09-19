@@ -1,3 +1,6 @@
 [submodule "TxtBrowser"]
 	path = TxtBrowser
 	url = git@github.com:yysfire/TxtBrowser.git
+[submodule "localbundle/vimwiki2markdown"]
+	path = localbundle/vimwiki2markdown
+	url = git@github.com:yysfire/vimwiki2markdown.git
