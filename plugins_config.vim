@@ -2,10 +2,8 @@
 "      FileName: plugins_config.vim
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
-"         Email: yysfire[at]gmail.com
-"      HomePage: http://
-"       Version: 4.5
-"  Last Changed: 2014-09-20 01:49
+"      HomePage: http://yysfire.github.com
+"  Last Changed: 2014-09-20 15:54
 "=============================================================================
 
 filetype off                  " required
@@ -115,6 +113,12 @@ set rtp+=$VIMFILES/localbundle/*/
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimwiki2markdown plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimwiki2markdown_markdown_type = 'pelican'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => delimitMate plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au FileType mkd,markdown,javascript,scala,textile,zsh,puppet,htmldjango,htmltornado,django,jinja2,ocaml let b:delimitMate_autoclose = 0
@@ -213,7 +217,6 @@ let g:colorv_preview_ftype = 'css,html,javascript,vim'
 "设置authorinfo插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimrc_author='幽谷奇峰( https://twitter.com/yysfirecn )'
-let g:vimrc_email='yysfire[at]gmail.com'
 let g:vimrc_homepage='http://yysfire.github.com'
 nmap <F4> :AuthorInfoDetect<cr>
 
@@ -274,7 +277,7 @@ let g:vimwiki_user_htmls = '404.html,search.html,google8befba0c77dd0855.html'
 
 " 从2级标题开始自动给标题编号
 "let g:vimwiki_html_header_numbering=2
-" 标题编号后跟')'
+" 标题编号后跟' '
 "let g:vimwiki_html_header_numbering_sym=' '
 
 "let g:vimwiki_browsers=['firefox']

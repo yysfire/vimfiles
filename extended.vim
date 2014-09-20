@@ -3,10 +3,8 @@
 "   Description: 此文件映射了不少有用的快捷键，可大幅提高效率
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
-"         Email: yysfire[at]gmail.com
-"      HomePage: http://
-"       Version: 4.5
-"   Last Update: 2014-08-31 16:58
+"      HomePage: http://yysfire.github.com
+"   Last Update: 2014-09-20 15:50
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","

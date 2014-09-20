@@ -2,10 +2,8 @@
 "      FileName: .vimrc
 "   Description: 用于加载其它四个配置文件
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
-"         Email: yysfire[at]gmail.com
-"      HomePage: http://
-"       Version: 4.5
-"  Last Changed: 2014-09-02 15:29
+"      HomePage: http://yysfire.github.com
+"  Last Changed: 2014-09-20 15:49
 "=============================================================================
 " za                            --展开或收起当前折叠
 " zi                            --展开或收起所有折叠

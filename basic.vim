@@ -2,10 +2,8 @@
 "      FileName: basic.vim
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
-"         Email: yysfire[at]gmail.com
-"      HomePage: http://
-"       Version: 4.5
-"  Last Changed: 2014-08-29 19:41
+"      HomePage: http://yysfire.github.com
+"  Last Changed: 2014-09-20 15:49
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
