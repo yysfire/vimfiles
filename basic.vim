@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.com
-"  Last Changed: 2014-09-20 15:49
+"  Last Changed: 2014-11-24 00:09
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -264,7 +264,7 @@ set shiftwidth=4 "(自动) 缩进每一步使用的空白数目。用于 'cinden
 set tabstop=8
 set softtabstop=4 "执行编辑操作，如插入 <Tab> 或者使用 <BS> 时，把 <Tab> 算作4个空格
 
-au FileType html,xml,sh,vim,php setlocal sw=2
+au FileType html,htmldjango,xml,sh,vim,php setlocal sw=2
 
 " Use spaces instead of tabs
 set expandtab
