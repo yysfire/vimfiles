@@ -76,7 +76,7 @@ Plugin 'Tabular'
 "jumps to any location specified by two characters.
 Plugin 'justinmk/vim-sneak'
 
-Plugin 'Rykka/colorv.vim'
+"Plugin 'Rykka/colorv.vim'
 
 " Git Section
 "A Git wrapper so awesome
