@@ -379,4 +379,4 @@ colors molokai
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-airline plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
