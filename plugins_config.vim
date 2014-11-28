@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.com
-"  Last Changed: 2014-09-20 15:54
+"  Last Changed: 2014-11-25 14:12
 "=============================================================================
 
 filetype off                  " required
@@ -229,6 +229,7 @@ nmap <F4> :AuthorInfoDetect<cr>
 au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
 au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
 au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
+au filetype vimwiki nmap <leader>wl :VimwikiToggleListItem<cr>
 au filetype vimwiki setl tw=0
 
 " 多个维基项目的配置
