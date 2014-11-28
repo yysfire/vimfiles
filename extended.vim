@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.com
-"   Last Update: 2014-09-20 15:50
+"   Last Update: 2014-11-22 05:29
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -165,7 +165,11 @@ if has("mac") || has("macunix")
 endif
 
 " 写入缓冲区时移除行尾的多余空格，diff文件除外
-autocmd BufWrite *.py :call vimrcfunc#extend#RemoveTrailingWhitespace()
+aug RemoveTrailingWhitespace
+    au!
+    au BufWrite *.{py,c,cpp,h,cc,htm,html,css,js,java,sh,bash,bat}
+                \ :call vimrcfunc#extend#RemoveTrailingWhitespace()
+aug end
 nmap <leader>dw :call vimrcfunc#extend#RemoveTrailingWhitespace()<cr>
 
 " 移除文档中的 ^M 符号
