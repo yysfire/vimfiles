@@ -60,8 +60,10 @@ Plugin 'othree/html5.vim'
 "Browse plain text easily(show the title tag and syntax highlight)
 "Plugin 'yysfire/TxtBrowser'
 "let txtbrowserfullpath = expand("$vimfiles/txtbrowser-yysfire")
-"let txtbrowserfullpath = substitute(txtbrowserfullpath, ':', '', "")
-"let txtbrowserfullpath = substitute(txtbrowserfullpath, '\\', '\/', "g")
+"if (g:ostype=='windows' && !has("win32unix"))
+    "let txtbrowserfullpath = substitute(txtbrowserfullpath, ':', '', "")
+    "let txtbrowserfullpath = substitute(txtbrowserfullpath, '\\', '\/', "g")
+"endif
 "Plugin 'file:///' . txtbrowserfullpath
 
 " Other Utils
