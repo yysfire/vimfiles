@@ -130,7 +130,7 @@ au FileType mkd,markdown,javascript,scala,textile,zsh,puppet,htmldjango,htmltorn
 " => CtrlP plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
