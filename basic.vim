@@ -148,11 +148,11 @@ if has("gui_running")
     set gfn+=Inconsolata:h12
     set gfn+=Dejavu_Sans_Mono:h10.5
     set gfn+=Bitstream_Vera_Sans_Mono:h10.5
-    set gfn+=Consolas:h13
+    set gfn+=Consolas:h10
 
-    set gfw+=Microsoft_Yahei:h11.5
-    set gfw+=Yahei_Mono:h11
-    set gfw+=YaHei_Consolas_Hybrid:h11.5
+    set gfw+=Microsoft_Yahei:h9
+    set gfw+=Yahei_Mono:h9
+    set gfw+=YaHei_Consolas_Hybrid:h9
   endif
 endif
 
