@@ -65,6 +65,15 @@ set list
 " 显示Tab符，使用一高亮竖线代替，拖尾空白用'-'代替
 set listchars=tab:\|\ ,trail:-
 
+" Highlight column 80
+if v:version >= 703
+    set cc=80
+    hi ColorColumn ctermbg=Gray ctermfg=Black guibg=#404040
+    command! Skinny set cc=72
+    command! Narrow set cc=80
+    command! Wide set cc=100
+endif
+
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,[,]
