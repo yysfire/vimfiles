@@ -98,6 +98,8 @@ if has("python") || has("python3")
   Plugin 'sjl/gundo.vim'
   "Lean & mean status/tabline for vim that's light as air.
   Plugin 'bling/vim-airline'
+  "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
+  Plugin 'klen/python-mode'
 endif
 
 if g:ostype=='unix' && !has("win32unix")
@@ -114,6 +116,25 @@ set rtp+=$VIMFILES/TxtBrowser/
 "set rtp+=$VIMFILES/vimcdoc/
 "set rtp+=$VIMFILES/vimwiki2markdown/
 set rtp+=$VIMFILES/localbundle/*/
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => python-mode plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode = 1
+let g:pymode_breakpoint_bind = '<leader>bp'
+if g:ostype=='windows'
+  let g:pymode_rope_autoimport = 0
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => syntastic plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_mode_map = { "mode": "active",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": ["python"] }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
