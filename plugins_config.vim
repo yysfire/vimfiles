@@ -16,7 +16,9 @@ call vundle#begin(bundlepath)
 Plugin 'gmarik/Vundle.vim'
 
 "Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+"Quickly locate files, buffers, mrus, ... in large project.
+Plugin 'Yggdroot/LeaderF'
 "Displays tags in a window, ordered by scope
 Plugin 'majutsushi/tagbar'
 "Alternate Files quickly (.c --> .h etc)
@@ -121,27 +123,16 @@ let g:vimwiki2markdown_markdown_type = 'pelican'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimwiki2markdown plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimwiki2markdown_markdown_type = 'pelican'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => delimitMate plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au FileType mkd,markdown,javascript,scala,textile,zsh,puppet,htmldjango,htmltornado,django,jinja2,ocaml let b:delimitMate_autoclose = 0
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CtrlP plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_working_path_mode = 'ra'
-if (g:ostype=='windows' && !has("win32unix"))
-  let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
-else
-  let g:ctrlp_user_command = 'find %s -type f'
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => tagbar plugin setting
