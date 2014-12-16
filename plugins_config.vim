@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2014-12-17 03:11
+"  Last Changed: 2014-12-17 03:26
 "=============================================================================
 
 filetype off                  " required
@@ -161,7 +161,7 @@ au FileType mkd,markdown,javascript,scala,textile,zsh,puppet,htmldjango,htmltorn
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => tagbar plugin setting
+" => tagbar plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>tb :TagbarToggle<CR>
 let g:tagbar_width = 30
@@ -215,8 +215,9 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置TxtBrowser 插件
+" => TxtBrowser plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "当切换到帮助buffer时，会改变其高亮设置
 "autocmd BufEnter,WinEnter,BufNewFile,BufRead *.txt setlocal ft=txt
@@ -224,24 +225,9 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
 au BufNewFile,BufRead *.txt setlocal ft=txt
 au BufRead,BufNewFile *.log setlocal ft=txt
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置ColorV插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Auto Preview color-text in *.css files.  Auto update view after write file.
-"let g:ColorV_prev_css=1
-let g:colorv_preview_ftype = 'css,html,javascript,vim'
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置authorinfo插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimrc_author='幽谷奇峰( https://twitter.com/yysfirecn )'
-let g:vimrc_homepage='http://yysfire.github.com'
-nmap <F4> :AuthorInfoDetect<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置vimwiki插件
+" => vimwiki plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
 au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
@@ -310,7 +296,7 @@ let g:vimwiki_dir_link='main'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置fcitx插件
+" => fcitx plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "if g:ostype=='unix'
     ""##### auto fcitx  ###########
@@ -360,7 +346,7 @@ let g:gist_open_browser_after_post = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The other color schemes setting
+" => color schemes plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colors-jellybeans
 " Dark color scheme, inspired by ir_black and twilight

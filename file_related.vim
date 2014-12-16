@@ -2,8 +2,8 @@
 "      FileName: file_related.vim
 "   Description: 与指定文件相关的配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
-"      HomePage: http://yysfire.github.com
-"  Last Changed: 2014-09-20 15:51
+"      HomePage: http://yysfire.github.io
+"  Last Changed: 2014-12-17 03:19
 "=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
