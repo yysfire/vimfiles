@@ -2,8 +2,8 @@
 "      FileName: plugins_config.vim
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
-"      HomePage: http://yysfire.github.com
-"  Last Changed: 2014-11-25 14:12
+"      HomePage: http://yysfire.github.io
+"  Last Changed: 2014-12-17 03:11
 "=============================================================================
 
 filetype off                  " required
@@ -138,9 +138,14 @@ let g:syntastic_mode_map = { "mode": "active",
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimwiki2markdown plugin
+" => SingleCompile plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki2markdown_markdown_type = 'pelican'
+call SingleCompile#SetCompilerTemplate('c', 'gcc', 'GNU C Compiler',
+             \'gcc', '-fno-tree-ch -O2 -Wall -std=c99 -pipe -lm -o $(FILE_TITLE)$',
+             \'$(FILE_RUN)$')
+call SingleCompile#SetCompilerTemplate('cpp', 'g++', 'GNU C++ Compiler',
+             \'g++', '-fno-tree-ch -O2 -Wall -std=c++11 -pipe -lm -o $(FILE_TITLE)$',
+             \'$(FILE_RUN)$')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
