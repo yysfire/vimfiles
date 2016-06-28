@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2014-12-17 03:18
+"  Last Changed: 2016-06-28 18:02
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -65,9 +65,9 @@ set list
 " 显示Tab符，使用一高亮竖线代替，拖尾空白用'-'代替
 set listchars=tab:\|\ ,trail:-
 
-" Highlight column 80
+" Highlight column 100
 if v:version >= 703
-    set cc=80
+    set cc=100
     hi ColorColumn ctermbg=Gray ctermfg=Black guibg=#404040
     command! Skinny set cc=72
     command! Narrow set cc=80
