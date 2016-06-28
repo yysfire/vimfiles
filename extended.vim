@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2014-12-17 03:19
+"   Last Update: 2016-06-27 09:56
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -144,7 +144,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " 将当前窗口的工作路径设置为当前文件所在目录
 map <leader>lc :lcd %:p:h<cr>:pwd<cr>
 " 自动将当前窗口的工作路径设置为当前文件所在目录
-autocmd BufEnter * lcd %:p:h
+"autocmd BufEnter * lcd %:p:h
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
