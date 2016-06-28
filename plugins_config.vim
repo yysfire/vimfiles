@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2014-12-17 03:26
+"  Last Changed: 2016-06-27 10:05
 "=============================================================================
 
 filetype off                  " required
@@ -123,10 +123,13 @@ set rtp+=$VIMFILES/localbundle/*/
 " => python-mode plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode = 1
-let g:pymode_breakpoint_bind = '<leader>bp'
-if g:ostype=='windows'
-  let g:pymode_rope_autoimport = 0
-endif
+let g:pymode_doc = 0
+let g:pymode_virtualenv = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pep257']
+let g:pymode_options_max_line_length = 100
+let g:pymode_breakpoint_bind = '<leader>br'
+let g:pymode_rope = 1
+let g:pymode_rope_autoimport = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
