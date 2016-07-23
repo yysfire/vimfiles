@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2016-06-28 18:02
+"  Last Changed: 2016-07-23 16:13
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -150,9 +150,9 @@ if has("gui_running")
     set gfn+=Bitstream_Vera_Sans_Mono:h10.5
     set gfn+=Consolas:h10
 
-    set gfw+=Microsoft_Yahei:h9
-    set gfw+=Yahei_Mono:h9
     set gfw+=YaHei_Consolas_Hybrid:h9
+    set gfw+=Yahei_Mono:h9
+    set gfw+=Microsoft_Yahei:h9
   endif
 endif
 
