@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2016-07-19 11:25
+"  Last Changed: 2016-07-23 17:35
 "=============================================================================
 
 filetype off                  " required
@@ -71,6 +71,7 @@ Plugin 'othree/html5.vim'
 " Other Utils
 Plugin 'tpope/vim-repeat'
 Plugin 'vimwiki/vimwiki'
+Plugin 'Rykka/riv.vim'
 "Text filtering and alignment
 Plugin 'Tabular'
 
@@ -228,6 +229,13 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
 
 au BufNewFile,BufRead *.txt setlocal ft=txt
 au BufRead,BufNewFile *.log setlocal ft=txt
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => riv plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let proj1 = { 'path': '$VIMHOME/VimWiki/public/rst',}
+let g:riv_projects = [proj1]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
