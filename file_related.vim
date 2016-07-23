@@ -3,7 +3,7 @@
 "   Description: 与指定文件相关的配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2014-12-17 03:19
+"  Last Changed: 2016-07-16 16:52
 "=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
@@ -26,7 +26,7 @@ au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,fi
 "au FileType python map <buffer> F :setlocal foldmethod=indent<cr>
 au FileType python setlocal foldmethod=indent
 "默认展开所有代码
-au FileType python setlocal foldlevel=99
+au FileType python setlocal foldlevel=1
 
 au FileType python inoremap <buffer> $r return 
 au FileType python inoremap <buffer> $i import 
