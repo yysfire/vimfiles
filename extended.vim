@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2016-06-27 09:56
+"   Last Update: 2016-07-27 17:51
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -129,14 +129,6 @@ map <leader>bd :call vimrcfunc#extend#BufcloseCloseIt()<cr>
 "map <leader>ba :1,1000 bd!<cr>
 map <leader>ba :1,1000 bd<cr>
 
-" 新建标签
-map <leader>tn :tabnew<cr>
-" 关闭当前标签
-map <leader>tc :tabclose<cr>
-" 关闭其他所有标签
-map <leader>to :tabonly<cr>
-" 移动标签
-map <leader>tm :tabmove
 " 以当前缓冲区的路径为工作路径打开新标签页，
 " 当想在同一目录下编辑文件时很有用
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
