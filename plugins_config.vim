@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2016-07-23 17:35
+"  Last Changed: 2016-07-27 17:24
 "=============================================================================
 
 filetype off                  " required
@@ -58,6 +58,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 "HTML5 + inline SVG omnicomplete funtion, indent and syntax
 Plugin 'othree/html5.vim'
+"No-BS Python code folding
+Plugin 'tmhedberg/SimpylFold'
 
 "Browse plain text easily(show the title tag and syntax highlight)
 "Plugin 'yysfire/TxtBrowser'
@@ -396,3 +398,17 @@ colors molokai
 " => vim-airline plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SimpylFold plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"fold all docstrings
+autocmd FileType python setlocal foldlevel=2
+"do not fold imports
+let g:SimpylFold_fold_import = 0
+"enable previewing of folded classes' and functions' docstrings in the
+"fold text
+let g:SimpylFold_docstring_preview = 1
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
