@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2016-07-23 16:13
+"  Last Changed: 2017-03-01 14:49
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -40,8 +40,9 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-"Show line number
+"Show line number and relative line number
 set nu
+set rnu
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
