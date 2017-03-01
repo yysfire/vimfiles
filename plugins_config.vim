@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2016-07-27 17:24
+"  Last Changed: 2017-03-01 13:18
 "=============================================================================
 
 filetype off                  " required
@@ -412,3 +412,9 @@ let g:SimpylFold_fold_import = 0
 let g:SimpylFold_docstring_preview = 1
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => LeaderF plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:Lf_DefaultMode = 2
