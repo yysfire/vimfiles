@@ -240,6 +240,7 @@ au BufRead,BufNewFile *.log setlocal ft=txt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let proj1 = { 'path': '$VIMHOME/VimWiki/public/rst',}
 let g:riv_projects = [proj1]
+let g:riv_global_leader = "<\Space>"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
