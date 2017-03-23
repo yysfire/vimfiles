@@ -60,6 +60,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
 "No-BS Python code folding
 Plugin 'tmhedberg/SimpylFold'
+"Configuration for Rust
+Plugin 'rust-lang/rust.vim'
 
 "Browse plain text easily(show the title tag and syntax highlight)
 "Plugin 'yysfire/TxtBrowser'
