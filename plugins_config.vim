@@ -62,6 +62,8 @@ Plugin 'othree/html5.vim'
 Plugin 'tmhedberg/SimpylFold'
 "Configuration for Rust
 Plugin 'rust-lang/rust.vim'
+"Go development plugin
+Plugin 'fatih/vim-go'
 
 "Browse plain text easily(show the title tag and syntax highlight)
 "Plugin 'yysfire/TxtBrowser'
@@ -425,3 +427,22 @@ autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " => LeaderF plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Lf_DefaultMode = 2
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-go plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:go_bin_path = expand("$GOROOT/bin")
+"Enable syntax-highlighting for Functions, Methods and Structs
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+"Disable opening browser after posting your snippet to play.golang.org
+let g:go_play_open_browser = 0
+"Fix some issues when using vim-go with Syntastic
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_list_type = "quickfix"
