@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-03-19 17:23
+"  Last Changed: 2017-03-23 11:13
 "=============================================================================
 
 filetype off                  " required
@@ -80,6 +80,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'Rykka/riv.vim'
 "Text filtering and alignment
 Plugin 'Tabular'
+"A plugin for making Vim plugins
+Plugin 'tpope/vim-scriptease'
 
 "Sneak is a minimalist, versatile Vim motion plugin that
 "jumps to any location specified by two characters.
