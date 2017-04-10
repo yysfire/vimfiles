@@ -3,7 +3,7 @@
 "   Description: 与指定文件相关的配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2016-08-04 18:38
+"  Last Changed: 2017-04-10 11:34
 "=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
@@ -161,3 +161,9 @@ autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
 " => markdown section
 """"""""""""""""""""""""""""""
 au FileType markdown,mkd setl fdl=99
+
+
+""""""""""""""""""""""""""""""
+" => golang section
+""""""""""""""""""""""""""""""
+au FileType go setl noet sw=8 sts=0 ts=8 tw=0
