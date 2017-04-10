@@ -160,4 +160,4 @@ autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
 """"""""""""""""""""""""""""""
 " => markdown section
 """"""""""""""""""""""""""""""
-au FileType markdown,mkd setl fdl=1
+au FileType markdown,mkd setl fdl=99
