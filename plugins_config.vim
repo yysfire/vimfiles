@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-20 20:45
+"  Last Changed: 2017-04-20 21:31
 "=============================================================================
 
 filetype off                  " required
@@ -449,3 +449,25 @@ let g:go_play_open_browser = 0
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-markdown plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_style_pythonic = 0
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_folding_level = 1
+let g:vim_markdown_no_default_key_mappings = 0
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_emphasis_multiline = 0
+"If set 1, do not require .md extensions for Markdown links
+let g:vim_markdown_no_extensions_in_markdown = 0
+"Auto-write when following link
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+"TOML syntax highlight requires vim-toml
+let g:vim_markdown_toml_frontmatter = 1
+"JSON syntax highlight requires vim-json
+let g:vim_markdown_json_frontmatter = 1
