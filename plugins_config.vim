@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-20 20:25
+"  Last Changed: 2017-04-20 20:45
 "=============================================================================
 
 filetype off                  " required
@@ -52,7 +52,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'xuhdev/SingleCompile'
 
 " Syntax/Indent Section
-"Syntax highlighting, matching rules and mappings for the original Markdown and extensions.
+"Text filtering and alignment
+"must come before vim-markdown
+Plugin 'godlygeek/tabular'
+"Markdown Vim Mode
 Plugin 'plasticboy/vim-markdown'
 "Vastly improved Javascript indentation and syntax support
 Plugin 'pangloss/vim-javascript'
@@ -78,8 +81,6 @@ Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-repeat'
 Plugin 'vimwiki/vimwiki'
 Plugin 'Rykka/riv.vim'
-"Text filtering and alignment
-Plugin 'godlygeek/tabular'
 "A plugin for making Vim plugins
 Plugin 'tpope/vim-scriptease'
 
