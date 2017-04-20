@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-03-23 15:34
+"  Last Changed: 2017-04-20 20:25
 "=============================================================================
 
 filetype off                  " required
@@ -79,7 +79,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vimwiki/vimwiki'
 Plugin 'Rykka/riv.vim'
 "Text filtering and alignment
-Plugin 'Tabular'
+Plugin 'godlygeek/tabular'
 "A plugin for making Vim plugins
 Plugin 'tpope/vim-scriptease'
 
