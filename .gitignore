@@ -3,3 +3,5 @@ tags-cn
 bundle/
 *.orig
 .netrwhist
+autoload/plug.vim
+plugged/

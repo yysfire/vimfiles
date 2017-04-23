@@ -3,133 +3,117 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-23 12:04
+"  Last Changed: 2017-04-23 13:53
 "=============================================================================
 
-filetype off                  " required
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('$VIMFILES/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=$VIMFILES/bundle/Vundle.vim
-let bundlepath = '$VIMFILES/bundle/'
-call vundle#begin(bundlepath)
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Make sure you use single quotes
 
 "Fuzzy file, buffer, mru, tag, etc finder.
-"Plugin 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 "Quickly locate files, buffers, mrus, ... in large project.
-Plugin 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF', { 'commit': '67d8ae7478da186f3b246277801ef04d278a4257' }
 "Displays tags in a window, ordered by scope
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 "Alternate Files quickly (.c --> .h etc)
-Plugin 'a.vim'
+Plug 'a.vim'
 "A fancy start screen for Vim.
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 " Code Completion Section
 if has("python") || has("python3")
   "The ultimate snippet solution for Vim.
-  Plugin 'SirVer/ultisnips'
+  Plug 'SirVer/ultisnips'
 endif
 "vim-snipmate default snippets (Previously snipmate-snippets)
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 "Provides support for expanding abbreviations similar to emmet.
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 "Provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 "Surround.vim: quoting/parenthesizing made simple
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
-Plugin 'matchit.zip'
+Plug 'matchit.zip'
 
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 "Syntax checking hacks
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 "Code Compile and Run
-Plugin 'xuhdev/SingleCompile'
+Plug 'xuhdev/SingleCompile'
 
 " Syntax/Indent Section
 "Text filtering and alignment
 "must come before vim-markdown
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 "Markdown Vim Mode
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 "Vastly improved Javascript indentation and syntax support
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 "HTML5 + inline SVG omnicomplete funtion, indent and syntax
-Plugin 'othree/html5.vim'
+Plug 'othree/html5.vim', { 'for': 'html' }
 "No-BS Python code folding
-Plugin 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 "Configuration for Rust
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 "Go development plugin
-Plugin 'fatih/vim-go'
-Plugin 'elzr/vim-json'
-Plugin 'cespare/vim-toml'
-
-"Browse plain text easily(show the title tag and syntax highlight)
-"Plugin 'yysfire/TxtBrowser'
-"let txtbrowserfullpath = expand("$vimfiles/txtbrowser-yysfire")
-"if (g:ostype=='windows' && !has("win32unix"))
-    "let txtbrowserfullpath = substitute(txtbrowserfullpath, ':', '', "")
-    "let txtbrowserfullpath = substitute(txtbrowserfullpath, '\\', '\/', "g")
-"endif
-"Plugin 'file:///' . txtbrowserfullpath
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Other Utils
-Plugin 'tpope/vim-repeat'
-Plugin 'vimwiki/vimwiki'
-Plugin 'Rykka/riv.vim'
+Plug 'tpope/vim-repeat'
+Plug 'vimwiki/vimwiki'
+Plug 'Rykka/riv.vim', { 'for': 'rst' }
 "A plugin for making Vim plugins
-Plugin 'tpope/vim-scriptease'
-Plugin 'iamcco/markdown-preview.vim'
+Plug 'tpope/vim-scriptease'
+Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 
 "Sneak is a minimalist, versatile Vim motion plugin that
 "jumps to any location specified by two characters.
-Plugin 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak'
 
-"Plugin 'Rykka/colorv.vim'
+"Plug 'Rykka/colorv.vim'
 
 " Git Section
 "A Git wrapper so awesome
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "A vimscript for creating gists,curl is required
-Plugin 'mattn/gist-vim'
+Plug 'mattn/gist-vim'
 "Required by gist-vim
-Plugin 'mattn/webapi-vim'
+Plug 'mattn/webapi-vim'
 
 " Colorscheme Section
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'junegunn/seoul256.vim'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/seoul256.vim'
 
 if has("python") || has("python3")
   "Graph your Vim undo tree in style.
-  Plugin 'sjl/gundo.vim'
+  Plug 'sjl/gundo.vim'
   "Lean & mean status/tabline for vim that's light as air.
-  Plugin 'bling/vim-airline'
+  Plug 'bling/vim-airline'
   "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
-  Plugin 'klen/python-mode'
+  Plug 'klen/python-mode', { 'for': 'python' }
 endif
 
 if g:ostype=='unix' && !has("win32unix")
-    "Plugin 'fcitx.vim'
-    Plugin 'SudoEdit.vim'
+    "Plug 'fcitx.vim'
+    Plug 'SudoEdit.vim'
 endif
 
+" Initialize plugin system
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " Local plugins
 set rtp+=$VIMFILES/TxtBrowser/
-"set rtp+=$VIMFILES/vimcdoc/
-"set rtp+=$VIMFILES/vimwiki2markdown/
 set rtp+=$VIMFILES/localbundle/*/
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
