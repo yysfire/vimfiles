@@ -418,14 +418,14 @@ let g:airline#extensions#tabline#enabled = 1
 " => SimpylFold plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "fold all docstrings
+let g:SimpylFold_fold_docstring = 1
 autocmd FileType python setlocal foldlevel=2
 "do not fold imports
 let g:SimpylFold_fold_import = 0
 "enable previewing of folded classes' and functions' docstrings in the
 "fold text
 let g:SimpylFold_docstring_preview = 1
-autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+autocmd FileType python setlocal foldexpr=SimpylFold#FoldExpr(v:lnum) foldmethod=expr
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
