@@ -67,6 +67,8 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'rust-lang/rust.vim'
 "Go development plugin
 Plugin 'fatih/vim-go'
+Plugin 'elzr/vim-json'
+Plugin 'cespare/vim-toml'
 
 "Browse plain text easily(show the title tag and syntax highlight)
 "Plugin 'yysfire/TxtBrowser'
