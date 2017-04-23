@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-20 21:31
+"  Last Changed: 2017-04-23 12:04
 "=============================================================================
 
 filetype off                  " required
@@ -85,6 +85,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'Rykka/riv.vim'
 "A plugin for making Vim plugins
 Plugin 'tpope/vim-scriptease'
+Plugin 'iamcco/markdown-preview.vim'
 
 "Sneak is a minimalist, versatile Vim motion plugin that
 "jumps to any location specified by two characters.
@@ -473,3 +474,30 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 "JSON syntax highlight requires vim-json
 let g:vim_markdown_json_frontmatter = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => markdown-preview.vim plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:mkdp_path_to_chrome = "GoogleChromePortable"
+" 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
+
+let g:mkdp_auto_start = 0
+" 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，只在打开
+" markdown 文件的时候打开一次
+
+let g:mkdp_auto_open = 0
+" 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，否则自动打开预
+" 览窗口
+
+let g:mkdp_auto_close = 1
+" 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
+" 自动关闭预览窗口
+
+let g:mkdp_refresh_slow = 0
+" 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，默认为 0，实时
+" 更新预览
+
+let g:mkdp_command_for_global = 0
+" 设置为 1 则所有文件都可以使用 MarkdownPreview 进行预览，默认只有 markdown
+" 文件可以使用改命令
