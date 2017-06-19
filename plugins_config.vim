@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-23 13:53
+"  Last Changed: 2017-06-19 09:47
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -18,7 +18,7 @@ Plug 'Yggdroot/LeaderF', { 'commit': '67d8ae7478da186f3b246277801ef04d278a4257' 
 "Displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
 "Alternate Files quickly (.c --> .h etc)
-Plug 'a.vim'
+Plug 'vim-scripts/a.vim'
 "A fancy start screen for Vim.
 Plug 'mhinz/vim-startify'
 
@@ -37,7 +37,7 @@ Plug 'Raimondi/delimitMate'
 "Surround.vim: quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
 
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 
 Plug 'scrooloose/nerdcommenter'
 
@@ -104,7 +104,7 @@ endif
 
 if g:ostype=='unix' && !has("win32unix")
     "Plug 'fcitx.vim'
-    Plug 'SudoEdit.vim'
+    Plug 'chrisbra/SudoEdit.vim'
 endif
 
 " Initialize plugin system
