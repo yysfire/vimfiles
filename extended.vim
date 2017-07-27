@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2016-07-27 17:51
+"   Last Update: 2017-07-27 17:36
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -304,6 +304,11 @@ if (!has('clipboard')) && (g:ostype=='unix')
   vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
   "vnoremap <C-C> :w !xsel -b<CR><CR>
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 格式化 json 文件
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap =j :%!python -m json.tool<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
