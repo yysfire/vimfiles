@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-03-23 09:46
+"  Last Changed: 2017-04-25 10:04
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -147,9 +147,9 @@ if has("gui_running")
     set gfn+=Monaco:h10
     set gfn+=monofur:h13.5
     set gfn+=Inconsolata:h12
-    set gfn+=Dejavu_Sans_Mono:h10.5
     set gfn+=Bitstream_Vera_Sans_Mono:h10.5
     set gfn+=Consolas:h10
+    set gfn+=Dejavu_Sans_Mono:h10
 
     set gfw+=楷体:h11
     set gfw+=YaHei_Consolas_Hybrid:h9
