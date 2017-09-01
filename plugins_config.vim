@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-06-19 09:47
+"  Last Changed: 2017-09-01 11:11
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -68,7 +68,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Other Utils
 Plug 'tpope/vim-repeat'
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'Rykka/riv.vim', { 'for': 'rst' }
 "A plugin for making Vim plugins
 Plug 'tpope/vim-scriptease'
@@ -99,7 +99,7 @@ if has("python") || has("python3")
   "Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
-  Plug 'klen/python-mode', { 'for': 'python' }
+  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 endif
 
 if g:ostype=='unix' && !has("win32unix")
