@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-25 10:04
+"  Last Changed: 2018-01-26 11:36
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -68,11 +68,12 @@ set listchars=tab:\|\ ,trail:-
 
 " Highlight column 100
 if v:version >= 703
-    set cc=100
+    "set cc=100
+    set colorcolumn=+1
     hi ColorColumn ctermbg=Gray ctermfg=Black guibg=#404040
-    command! Skinny set cc=72
+    command! Skinny set cc=73
     command! Narrow set cc=80
-    command! Wide set cc=100
+    command! Wide set cc=101
 endif
 
 " Configure backspace so it acts as it should act
@@ -288,10 +289,16 @@ set expandtab
 " 如果关闭，<Tab> 总是根据 'tabstop' 或 'softtabstop' 决定插入空白的数目
 set smarttab
 
-" Linebreak on 100 characters
-"if has("linebreak")
-"set lbr
-"endif
+" Wrap long lines
+set wrap
+if has("linebreak")
+  " 在单词的空白处折行
+  "set lbr
+  " 折行前面加上 <==> 标志
+  set showbreak=<==>
+endif
+" 折行时使用行号栏, 与 showbreak 配合使用
+set cpo+=n
 "set tw=78
 "set formatoptions+=mM
 "au filetype txt,text setlocal formatoptions=aw2qmM
