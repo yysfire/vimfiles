@@ -3,7 +3,7 @@
 "   Description: 与指定文件相关的配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-04-10 11:34
+"  Last Changed: 2018-01-08 11:31
 "=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
@@ -20,7 +20,7 @@
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self StandardError
-au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=0
+au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=79
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 "以缩进为代码折叠的依据
 "au FileType python map <buffer> F :setlocal foldmethod=indent<cr>

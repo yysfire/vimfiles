@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2017-09-01 11:11
+"  Last Changed: 2018-01-08 11:34
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -41,8 +41,12 @@ Plug 'vim-scripts/matchit.zip'
 
 Plug 'scrooloose/nerdcommenter'
 
-"Syntax checking hacks
-Plug 'scrooloose/syntastic'
+if v:version < 800
+  "Syntax checking hacks
+  Plug 'scrooloose/syntastic'
+else
+  Plug 'w0rp/ale'
+endif
 
 "Code Compile and Run
 Plug 'xuhdev/SingleCompile'
@@ -123,11 +127,21 @@ let g:pymode = 1
 let g:pymode_doc = 0
 let g:pymode_virtualenv = 1
 "let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pep257']
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_options_max_line_length = 100
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_ignore = "E501,E722"
+let g:pymode_lint_sort = ['E', 'C', 'I']
+"发现错误时不自动打开QuickFix窗口
+let g:pymode_lint_cwindow = 0
+let g:pymode_options_max_line_length = 79
 let g:pymode_breakpoint_bind = '<leader>br'
 let g:pymode_rope = 1
-let g:pymode_rope_autoimport = 1
+let g:pymode_rope_autoimport = 0
+let g:pymode_options = 1
+"let g:pymode_options = 0
+"setlocal complete+=t
+"setlocal formatoptions-=t
+"setlocal commentstring=#%s
+"setlocal define=^\s*\\(def\\\\|class\\)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -485,3 +499,32 @@ let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 " 设置为 1 则所有文件都可以使用 MarkdownPreview 进行预览，默认只有 markdown
 " 文件可以使用改命令
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ale plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 禁用 python-mode 的语法检查
+let g:pymode_lint = 0
+""始终开启标志列
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+"自定义error和warning图标
+let g:ale_sign_error = '✗✗'
+let g:ale_sign_warning = '**'
+let g:airline#extensions#ale#enabled = 1
+"显示Linter名称,出错或警告等相关信息
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" 文件内容改变时不实时检查
+let g:ale_lint_on_text_changed = 'never'
+" 打开文件时不启用检查
+let g:ale_lint_on_enter = 0
+""普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
+"<Leader>s触发/关闭语法检查
+"nmap <Leader>s :ALEToggle<CR>
+""<Leader>d查看错误或警告的详细信息
+nmap <Leader>d :ALEDetail<CR>
