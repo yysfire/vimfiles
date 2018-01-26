@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2017-07-27 17:36
+"   Last Update: 2018-01-26 10:25
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -159,7 +159,7 @@ endif
 " 写入缓冲区时移除行尾的多余空格，diff文件除外
 aug RemoveTrailingWhitespace
     au!
-    au BufWrite *.{py,c,cpp,h,cc,htm,html,css,js,java,sh,bash,bat}
+    au BufWrite *.{py,c,cpp,h,cc,htm,html,css,js,java,sh,bash,bat,ldif}
                 \ :call vimrcfunc#extend#RemoveTrailingWhitespace()
 aug end
 nmap <leader>dw :call vimrcfunc#extend#RemoveTrailingWhitespace()<cr>
