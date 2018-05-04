@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-01-08 11:34
+"  Last Changed: 2018-05-04 17:30
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -69,6 +69,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'pearofducks/ansible-vim'
 
 " Other Utils
 Plug 'tpope/vim-repeat'
@@ -104,6 +105,7 @@ if has("python") || has("python3")
   Plug 'bling/vim-airline'
   "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
   Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
 endif
 
 if g:ostype=='unix' && !has("win32unix")
@@ -528,3 +530,13 @@ nmap sn <Plug>(ale_next_wrap)
 "nmap <Leader>s :ALEToggle<CR>
 ""<Leader>d查看错误或警告的详细信息
 nmap <Leader>d :ALEDetail<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-mediawiki-editor plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:mediawiki_editor_url = '172.16.173.2'
+let g:mediawiki_editor_uri_scheme = 'http'
+let g:mediawiki_editor_path = '/wiki/'
+let g:mediawiki_editor_username = 'yys'
+let g:mediawiki_editor_password = '5BiUVhdPx6HPk2JaH3bY'
