@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-04 17:30
+"  Last Changed: 2018-05-08 10:21
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -88,6 +88,8 @@ Plug 'justinmk/vim-sneak'
 " Git Section
 "A Git wrapper so awesome
 Plug 'tpope/vim-fugitive'
+"A git commit browser.
+Plug 'junegunn/gv.vim'
 "A vimscript for creating gists,curl is required
 Plug 'mattn/gist-vim'
 "Required by gist-vim
