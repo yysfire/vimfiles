@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-10 09:53
+"  Last Changed: 2018-05-10 10:19
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -75,6 +75,7 @@ Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'pearofducks/ansible-vim'
+Plug 'chikamichi/mediawiki.vim'
 
 " Other Utils
 Plug 'tpope/vim-repeat'
