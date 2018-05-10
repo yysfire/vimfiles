@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-01-26 11:36
+"  Last Changed: 2018-05-09 17:54
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -130,7 +130,7 @@ if !has('gui_running') && !empty($ConEmuBuild)
   "let &t_AF="\e[38;5;%dm"
 endif
 
-colors sonoma
+"colors sonoma
 
 " Set font according to system
 if has("gui_running")
