@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-08 10:21
+"  Last Changed: 2018-05-10 09:53
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -33,6 +33,11 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 "Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Raimondi/delimitMate'
+if has("python3")
+  Plug 'roxma/nvim-completion-manager'
+  Plug 'fgrsnau/ncm-otherbuf'
+  Plug 'Shougo/neco-vim'
+endif
 
 "Surround.vim: quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
@@ -542,3 +547,19 @@ let g:mediawiki_editor_uri_scheme = 'http'
 let g:mediawiki_editor_path = '/wiki/'
 let g:mediawiki_editor_username = 'yys'
 let g:mediawiki_editor_password = '5BiUVhdPx6HPk2JaH3bY'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => nvim-completion-manager
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"expanding snippet in the popup menu with <Enter> key
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+"expanding snippet in the popup menu with <C-L> key
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-l>":"\<CR>")
+"popup all snippets for current buf with <C-L> key
+let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+inoremap <silent> <c-l> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+"Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
