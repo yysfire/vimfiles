@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-10 10:19
+"  Last Changed: 2018-05-14 15:09
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -33,11 +33,14 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 "Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Raimondi/delimitMate'
-if has("python3")
-  Plug 'roxma/nvim-completion-manager'
-  Plug 'fgrsnau/ncm-otherbuf'
-  Plug 'Shougo/neco-vim'
+
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'roxma/nvim-completion-manager'
+Plug 'fgrsnau/ncm-otherbuf'
+Plug 'Shougo/neco-vim'
 
 "Surround.vim: quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
