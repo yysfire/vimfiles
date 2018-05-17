@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2018-01-26 10:25
+"   Last Update: 2018-05-17 13:32
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -127,7 +127,7 @@ noremap <leader>bp :bprev!<CR>
 map <leader>bd :call vimrcfunc#extend#BufcloseCloseIt()<cr>
 " 卸载所有缓冲区,但不退出Vim
 "map <leader>ba :1,1000 bd!<cr>
-map <leader>ba :1,1000 bd<cr>
+map <leader>ba :%bdelete<cr>
 
 " 以当前缓冲区的路径为工作路径打开新标签页，
 " 当想在同一目录下编辑文件时很有用
