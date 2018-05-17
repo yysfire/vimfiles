@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-14 15:09
+"  Last Changed: 2018-05-17 14:16
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -148,6 +148,8 @@ let g:pymode_lint_cwindow = 0
 let g:pymode_options_max_line_length = 79
 let g:pymode_breakpoint_bind = '<leader>br'
 let g:pymode_rope = 1
+"不在父目录里查找 .ropeproject
+let g:pymode_rope_lookup_project = 1
 let g:pymode_rope_autoimport = 0
 let g:pymode_options = 1
 "let g:pymode_options = 0
@@ -558,12 +560,13 @@ let g:mediawiki_editor_password = '5BiUVhdPx6HPk2JaH3bY'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "expanding snippet in the popup menu with <Enter> key
 imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-"expanding snippet in the popup menu with <C-L> key
 imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-l>":"\<CR>")
+
 "popup all snippets for current buf with <C-L> key
 let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 inoremap <silent> <c-l> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+
 "Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
