@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-17 14:16
+"  Last Changed: 2018-05-18 15:15
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -149,7 +149,7 @@ let g:pymode_options_max_line_length = 79
 let g:pymode_breakpoint_bind = '<leader>br'
 let g:pymode_rope = 1
 "不在父目录里查找 .ropeproject
-let g:pymode_rope_lookup_project = 1
+let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_autoimport = 0
 let g:pymode_options = 1
 "let g:pymode_options = 0
