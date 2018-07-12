@@ -137,6 +137,7 @@ set rtp+=$VIMFILES/localbundle/*/
 " => python-mode plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode = 1
+let g:pymode_python = 'python'
 let g:pymode_doc = 0
 let g:pymode_virtualenv = 1
 "let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pep257']
