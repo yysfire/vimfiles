@@ -285,7 +285,7 @@ let wiki_1.template_path = '$VIMHOME/VimWiki/public/vimwiki_template/'
 let wiki_1.template_default = 'misc'
 let wiki_1.template_ext = '.html'
 let wiki_1.nested_syntaxes = {'asm': 'asm', 'c': 'c', 'cpp': 'cpp',
-            \ 'css': 'css', 'js': 'javascript',
+            \ 'css': 'css', 'js': 'javascript', 'json': 'json',
             \ 'perl': 'perl', 'python': 'python', 'java': 'java',
             \ 'php': 'php', 'html': 'html', 'bash': 'sh', 'vim': 'vim',
             \ 'make': 'make'}
