@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-07-06 19:05
+"  Last Changed: 2018-07-12 16:56
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -544,12 +544,17 @@ nmap sn <Plug>(ale_next_wrap)
 "nmap <Leader>s :ALEToggle<CR>
 ""<Leader>d查看错误或警告的详细信息
 nmap <Leader>d :ALEDetail<CR>
+
 let g:ale_fixers = {
 \   'python': [
 \       'isort',
+\       'autopep8',
 \       'yapf',
 \   ],
 \}
+" Bind F8 to fixing problems with ALE
+nmap <F8> <Plug>(ale_fix)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-mediawiki-editor plugin
