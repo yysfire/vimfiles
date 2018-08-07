@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-07-12 16:56
+"  Last Changed: 2018-08-07 16:22
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -132,6 +132,10 @@ endif
 " This plugin allows vim to use Racer for Rust code navigation.
 Plug 'racer-rust/vim-racer'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ }
+
 if g:ostype=='unix' && !has("win32unix")
     "Plug 'fcitx.vim'
     Plug 'chrisbra/SudoEdit.vim'
@@ -190,6 +194,8 @@ call SingleCompile#SetCompilerTemplate('c', 'gcc', 'GNU C Compiler',
 call SingleCompile#SetCompilerTemplate('cpp', 'g++', 'GNU C++ Compiler',
              \'g++', '-fno-tree-ch -O2 -Wall -std=c++11 -pipe -lm -o $(FILE_TITLE)$',
              \'$(FILE_RUN)$')
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -380,13 +386,6 @@ let g:vimwiki_dir_link='main'
     ""autocmd InsertEnter * call Fcitx2zh()
     ""##### auto fcitx end ######
 "endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => SingleCompile plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F9> :SCCompile<cr>
-nmap <F10> :SCCompileRun<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -627,3 +626,19 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+
+""""""""""""""""""""""""""""""
+"  => LanguageClient-neovim  "
+""""""""""""""""""""""""""""""
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
