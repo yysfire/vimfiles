@@ -34,13 +34,23 @@ Plug 'mattn/emmet-vim'
 "Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Raimondi/delimitMate'
 
+Plug 'ncm2/ncm2'
+" ncm2 requires nvim-yarp
+Plug 'roxma/nvim-yarp'
 if !has('nvim')
-  Plug 'roxma/nvim-yarp'
+  " for vim8: nvim-yarp requires vim-hug-neovim-rpc
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'roxma/nvim-completion-manager'
-Plug 'fgrsnau/ncm-otherbuf'
-Plug 'Shougo/neco-vim'
+" some completion sources
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
+Plug 'ncm2/ncm2-go'
+Plug 'ncm2/ncm2-racer'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-rst-subscope'
+Plug 'ncm2/ncm2-ultisnips'
 
 "Surround.vim: quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
@@ -118,6 +128,9 @@ if has("python") || has("python3")
   Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
   Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
 endif
+
+" This plugin allows vim to use Racer for Rust code navigation.
+Plug 'racer-rust/vim-racer'
 
 if g:ostype=='unix' && !has("win32unix")
     "Plug 'fcitx.vim'
@@ -569,15 +582,48 @@ let g:mediawiki_editor_password = '5BiUVhdPx6HPk2JaH3bY'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nvim-completion-manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"expanding snippet in the popup menu with <Enter> key
-imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-l>":"\<CR>")
+""expanding snippet in the popup menu with <Enter> key
+"imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+"imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-l>":"\<CR>")
 
-"popup all snippets for current buf with <C-L> key
-let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+""popup all snippets for current buf with <C-L> key
+"let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+"let g:UltiSnipsRemoveSelectModeMappings = 0
+"inoremap <silent> <c-l> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+
+""Use <TAB> to select the popup menu:
+""inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+""inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ncm2
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" :help Ncm2PopupOpen for more information
+au User Ncm2PopupOpen set completeopt=menuone,noinsert,noselect
+au User Ncm2PopupClose set completeopt=menuone
+
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+"let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 let g:UltiSnipsRemoveSelectModeMappings = 0
-inoremap <silent> <c-l> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
-"Use <TAB> to select the popup menu:
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+""""""""""""""""""
+" => vim-racer  "
+""""""""""""""""""
+set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
