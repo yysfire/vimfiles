@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-08-07 16:22
+"  Last Changed: 2018-10-22 10:32
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -94,6 +94,7 @@ Plug 'chikamichi/mediawiki.vim'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'Rykka/riv.vim', { 'for': 'rst' }
+Plug 'gu-fan/InstantRst', { 'for': 'rst' }
 "A plugin for making Vim plugins
 Plug 'tpope/vim-scriptease'
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
