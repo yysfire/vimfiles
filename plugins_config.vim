@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-10-22 10:32
+"  Last Changed: 2018-10-23 10:33
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -155,7 +155,11 @@ set rtp+=$VIMFILES/localbundle/*/
 " => python-mode plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode = 1
-let g:pymode_python = 'python'
+if has("python3")
+  let g:pymode_python = 'python3'
+else
+  let g:pymode_python = 'python'
+endif
 let g:pymode_doc = 0
 let g:pymode_virtualenv = 1
 "let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pep257']
