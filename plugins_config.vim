@@ -127,7 +127,8 @@ if has("python") || has("python3")
   Plug 'bling/vim-airline'
   "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
   Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-  Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
+  "Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
+  Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
 endif
 
 " This plugin allows vim to use Racer for Rust code navigation.
