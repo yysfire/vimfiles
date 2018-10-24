@@ -1,0 +1,151 @@
+priority -50
+
+#############
+#  Headers  #
+#############
+
+snippet h1 "Header Level 1" b
+= ${1:Header Level 1} =
+$0
+endsnippet
+
+snippet h2 "Header Level 2" b
+== ${1:Header Level 2} ==
+$0
+endsnippet
+
+snippet h3 "Header Level 3" b
+=== ${1:Header Level 3} ===
+$0
+endsnippet
+
+snippet h4 "Header Level 4" b
+==== ${1:Header Level 4} ====
+$0
+endsnippet
+
+snippet h5 "Header Level 5" b
+===== ${1:Header Level 5} =====
+$0
+endsnippet
+
+snippet h6 "Header Level 6" b
+====== ${1:Header Level 6} ======
+$0
+endsnippet
+
+
+###################
+# Text formatting #
+###################
+
+snippet ' "italics"
+''${1:${VISUAL}}''$0
+endsnippet
+
+snippet '' "bold"
+'''${1:${VISUAL}}'''$0
+endsnippet
+
+snippet ''' "bold italics"
+'''''${1:${VISUAL}}'''''$0
+endsnippet
+
+snippet nowiki "nowiki"
+<nowiki>${1:${VISUAL}}</nowiki>$0
+endsnippet
+
+snippet ; "definition list"
+;${1:item 1}
+: ${2:definition 1}
+;${3:item 2}
+: ${4:definition 2-1}
+: ${5:definition 2-2}
+endsnippet
+
+snippet sup "superscript"
+<sup>${1:${VISUAL}}</sup>$0
+endsnippet
+
+snippet sub "subscript"
+<sub>${1:${VISUAL}}</sub>$0
+endsnippet
+
+snippet hr "Horizontal line" b
+------------------------------------------------------------------------------
+$0
+endsnippet
+
+snippet ilc "Inline Code" i
+<code>$1</code>$0
+endsnippet
+
+snippet cbl "Codeblock" b
+<syntaxhighlight lang="${2:json}">
+$1
+</syntaxhighlight>
+$0
+endsnippet
+
+snippet cbln "Codeblock with line number" b
+<syntaxhighlight lang="${2:json}" line="${3:1}">
+$1
+</syntaxhighlight>
+$0
+endsnippet
+
+snippet quote "Blockquotes" i
+<blockquote>$1</blockquote>$0
+endsnippet
+
+
+###########
+#  Links  #
+###########
+
+snippet inw "Interwiki Link"
+[[wiki${1:1}:${2:link source}|${3:Description}]]$0
+endsnippet
+
+snippet link "Link"
+[${3:http}://${2:www.url.com} ${1:${VISUAL:Text}}]$0
+endsnippet
+
+snippet mailto "Mailto Link"
+[mailto:${2:usr@url.com} ${1:${VISUAL:Text}}]$0
+endsnippet
+
+
+###########
+#  Image  #
+###########
+
+snippet img "Image"
+[[File:${1:example.jpg}|${2:caption}]]$0
+endsnippet
+
+snippet imgf "Image frame"
+[[File:${1:example.jpg}|frame|${2:caption}]]$0
+endsnippet
+
+snippet imgfl "Image frameless"
+[[File:${1:example.jpg}|frameless|${2:caption}]]$0
+endsnippet
+
+snippet thn "Thumbnail"
+[[File:${1:example.jpg}|thumb|${2:caption}]]$0
+endsnippet
+
+snippet imgl "Image link"
+[[File:${1:example.jpg}|link=${3:url or page}|${2:caption}]]$0
+endsnippet
+
+snippet gallery "Gallery"
+<gallery>
+${1:Example.jpg}|${2:note1}
+${3:Example.jpg}|${4:note2}
+</gallery>
+$0
+endsnippet
+
+# vim:ft=snippets:
