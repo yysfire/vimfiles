@@ -1,5 +1,29 @@
 priority -50
 
+global !p
+def create_table(snip):
+    # retrieving single line from current string and treat it like tabstops count
+    placeholders_string = snip.buffer[snip.line].strip()[2:].split("x",1)
+    rows_amount = int(placeholders_string[0])
+    columns_amount = int(placeholders_string[1])
+
+    # erase current line
+    snip.buffer[snip.line] = ''
+
+    # create anonymous snippet with expected content and number of tabstops
+    table_begin = '{| class="wikitable"\n'
+    table_title = "! " + ' !! '.join(['$' + str(col) for col in range(1,columns_amount+1)]) + "\n"
+    #table_delimiter = ':-|' * (columns_amount-1) + ":-\n"
+    table_body = ""
+    table_end = '|}'
+    for row in range(1,rows_amount+1):
+        table_body += "|-\n| " + ' || '.join(['$' + str(row*columns_amount+col) for col in range(1,columns_amount+1)]) + "\n"
+    anon_snippet_table = table_begin + table_title + table_body + table_end
+
+    # expand anonymous snippet
+    snip.expand_anon(anon_snippet_table)
+endglobal
+
 #############
 #  Headers  #
 #############
@@ -146,6 +170,14 @@ ${1:Example.jpg}|${2:note1}
 ${3:Example.jpg}|${4:note2}
 </gallery>
 $0
+endsnippet
+
+###########
+#  Table  #
+###########
+
+pre_expand "create_table(snip)"
+snippet "tb(\d+x\d+)" "Table with Headers" br
 endsnippet
 
 # vim:ft=snippets:
