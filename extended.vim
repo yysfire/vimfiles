@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2018-05-17 13:32
+"   Last Update: 2019-04-25 20:02
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -308,7 +308,13 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 格式化 json 文件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap =j :%!python -m json.tool<CR>
+if g:ostype=='windows'
+  nmap =j2 :%!py -2 -m json.tool<CR>
+  nmap =j3 :%!py -3 -m json.tool --sort-keys<CR>
+else
+  nmap =j2 :%!python -m json.tool<CR>
+  nmap =j3 :%!python3 -m json.tool --sort-keys<CR>
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
