@@ -157,7 +157,8 @@ set rtp+=$VIMFILES/localbundle/*/
 " => python-mode plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode = 1
-if has("python3")
+let s:python_local_version = substitute(system("$(which python) -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
+if s:python_local_version == 3
   let g:pymode_python = 'python3'
 else
   let g:pymode_python = 'python'
@@ -166,7 +167,7 @@ let g:pymode_doc = 0
 let g:pymode_virtualenv = 1
 "let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pep257']
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_lint_ignore = "E501,E722"
+let g:pymode_lint_ignore = ["E501", "E722"]
 let g:pymode_lint_sort = ['E', 'C', 'I']
 "发现错误时不自动打开QuickFix窗口
 let g:pymode_lint_cwindow = 0
@@ -276,6 +277,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "myUltiSnips"]
 
+au FileType python UltiSnipsAddFiletypes python.django
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => TxtBrowser plugin
@@ -556,6 +558,15 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 " 打开文件时不启用检查
 let g:ale_lint_on_enter = 0
+let g:ale_python_mypy_options = '--ignore-missing-imports'
+if s:python_local_version == 3
+    let g:ale_python_flake8_executable = '/usr/bin/python3'
+else
+    let g:ale_python_flake8_executable = '/usr/bin/python'
+    let g:ale_python_mypy_options .= ' --py2'
+endif
+let g:ale_python_flake8_options = '-m flake8'
+"let g:ale_python_mypy_ignore_invalid_syntax = 1
 ""普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap sp <Plug>(ale_previous_wrap)
 nmap sn <Plug>(ale_next_wrap)
@@ -564,6 +575,7 @@ nmap sn <Plug>(ale_next_wrap)
 ""<Leader>d查看错误或警告的详细信息
 nmap <Leader>d :ALEDetail<CR>
 
+let g:ale_linters = {'python': ['flake8', 'mypy']}
 let g:ale_fixers = {
 \   'python': [
 \       'isort',

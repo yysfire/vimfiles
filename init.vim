@@ -3,7 +3,7 @@
 "   Description: 用于加载其它四个配置文件
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-09 18:13
+"  Last Changed: 2019-08-14 12:51
 "=============================================================================
 " za                            --展开或收起当前折叠
 " zi                            --展开或收起所有折叠
@@ -34,8 +34,8 @@ else
     let $VIMFILES = $VIMHOME.'/.vim'
 endif
 
-let g:python3_host_prog='/opt/oecloud/pyenv/versions/neovim-py3/bin/python3'
-let g:python_host_prog='/opt/oecloud/pyenv/versions/neovim/bin/python'
+let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python'
 
 source $VIMFILES/basic.vim
 source $VIMFILES/extended.vim

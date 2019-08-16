@@ -32,7 +32,7 @@ if g:ostype=='windows'
 else
     let $VIMHOME = $HOME
     let $VIMFILES = $VIMHOME.'/.vim'
-    let g:python3_host_prog='/opt/oecloud/pyenv/versions/neovim-py3/bin/python3'
+    " let g:python3_host_prog='/opt/oecloud/pyenv/versions/neovim-py3/bin/python3'
 endif
 
 
