@@ -474,7 +474,7 @@ let g:Lf_DefaultMode = 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-go plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_bin_path = expand("$GOROOT/bin")
+"let g:go_bin_path = expand("$GOROOT/bin")
 "Enable syntax-highlighting for Functions, Methods and Structs
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
