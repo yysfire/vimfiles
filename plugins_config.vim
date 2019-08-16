@@ -89,6 +89,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'pearofducks/ansible-vim'
 Plug 'chikamichi/mediawiki.vim'
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
 " Other Utils
 Plug 'tpope/vim-repeat'
@@ -648,3 +649,10 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
+
+
+"""""""""""""""
+"  vim-shfmt  "
+"""""""""""""""
+let g:shfmt_extra_args = '-i 2 -ci -sr'
+let g:shfmt_fmt_on_save = 1
