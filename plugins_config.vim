@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2019-08-16 15:05
+"  Last Changed: 2019-08-16 18:44
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -253,6 +253,16 @@ let g:tagbar_type_vhdl = {
         \'l:locals'
     \]
 \}
+
+let g:tagbar_type_mediawiki = {
+      \ 'ctagstype' : 'mediawiki',
+      \ 'kinds' : [
+      \'h:chapters',
+      \'s:sections',
+      \'u:subsections',
+      \'b:subsubsections',
+      \]
+      \}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
