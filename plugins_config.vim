@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-10-23 10:33
+"  Last Changed: 2019-08-16 15:05
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -137,6 +137,7 @@ Plug 'racer-rust/vim-racer'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
     \ }
 
 if g:ostype=='unix' && !has("win32unix")
