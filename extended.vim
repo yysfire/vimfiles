@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2018-05-17 13:32
+"   Last Update: 2019-08-16 16:04
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -301,14 +301,24 @@ map <leader>s? z=
 " => 复制到剪切板
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if (!has('clipboard')) && (g:ostype=='unix')
-  vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
-  "vnoremap <C-C> :w !xsel -b<CR><CR>
+  if executable('xclip')
+    vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+  elseif executable('xsel')
+    vnoremap <C-C> :w !xsel -b<CR><CR>
+  endif
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 格式化 json 文件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap =j :%!python -m json.tool<CR>
+
+""""""""""""""""
+"  sudo write  "
+""""""""""""""""
+if executable('sudo') && executable('tee')
+  command! W :execute 'silent! write !sudo tee "%" >/dev/null' <bar> edit!
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
