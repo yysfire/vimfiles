@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2019-08-16 18:43
+"   Last Update: 2019-08-28 06:08
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -64,12 +64,21 @@ endif
 " => 快速编辑和重载配置文件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if g:ostype=='unix'
-  map <silent> <leader>ee :e $VIMHOME/.vimrc<cr>
-  map <silent> <leader>ss :source $VIMHOME/.vimrc<cr>
-  augroup AutoResourceVimrc
-    au!
-    au bufwritepost .vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/.vimrc
-  augroup End
+  if !has('nvim')
+    map <silent> <leader>ee :e $VIMHOME/.vimrc<cr>
+    map <silent> <leader>ss :source $VIMHOME/.vimrc<cr>
+    augroup AutoResourceVimrc
+      au!
+      au bufwritepost .vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/.vimrc
+    augroup End
+  else
+    map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
+    map <silent> <leader>ss :source $HOME/.config/nvim/init.vim<cr>
+    augroup AutoResourceVimrc
+      au!
+      au bufwritepost init.vim,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $HOME/.config/nvim/init.vim
+    augroup End
+  endif
 elseif g:ostype=='windows'
   map <silent> <leader>ee :e $VIMHOME/_vimrc<cr>
   map <silent> <leader>ss :source $VIMHOME/_vimrc<cr>
