@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2019-08-16 18:44
+"  Last Changed: 2019-08-28 23:01
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -679,3 +679,9 @@ nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
 """""""""""""""
 let g:shfmt_extra_args = '-i 2 -ci -sr'
 let g:shfmt_fmt_on_save = 1
+
+
+""""""""""""""
+"  SudoEdit  "
+""""""""""""""
+let g:sudo_askpass='/usr/lib/openssh/gnome-ssh-askpass'
