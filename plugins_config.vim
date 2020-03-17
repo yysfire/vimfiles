@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2019-08-28 23:01
+"  Last Changed: 2020-03-17 15:22
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -90,6 +90,8 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'pearofducks/ansible-vim'
 Plug 'chikamichi/mediawiki.vim'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+" TypeScript Syntax Highlighting
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Other Utils
 Plug 'tpope/vim-repeat'
@@ -203,6 +205,8 @@ call SingleCompile#SetCompilerTemplate('c', 'gcc', 'GNU C Compiler',
 call SingleCompile#SetCompilerTemplate('cpp', 'g++', 'GNU C++ Compiler',
              \'g++', '-fno-tree-ch -O2 -Wall -std=c++11 -pipe -lm -o $(FILE_TITLE)$',
              \'$(FILE_RUN)$')
+call SingleCompile#SetCompilerTemplate('typescript', 'tsc', 'TypeScript Compiler',
+             \'tsc', '--strictNullChecks', 'ts-node $(FILE_NAME)$')
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
 
@@ -417,7 +421,11 @@ elseif g:ostype=='mac'
     let g:gist_clip_command = 'pbcopy'
 endif
 let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
+let g:gist_open_browser_after_post = 0
+let g:gist_show_privates = 1
+let g:gist_get_multiplefile = 1
+" Only :w! updates a gist.
+let g:gist_update_on_write = 2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
