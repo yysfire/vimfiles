@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2019-08-28 06:08
+"   Last Update: 2020-04-05 16:29
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -80,12 +80,21 @@ if g:ostype=='unix'
     augroup End
   endif
 elseif g:ostype=='windows'
-  map <silent> <leader>ee :e $VIMHOME/_vimrc<cr>
-  map <silent> <leader>ss :source $VIMHOME/_vimrc<cr>
-  augroup AutoResourceVimrc
-    au!
-    au bufwritepost _vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/_vimrc
-  augroup End
+  if !has('nvim')
+    map <silent> <leader>ee :e $VIMHOME/_vimrc<cr>
+    map <silent> <leader>ss :source $VIMHOME/_vimrc<cr>
+    augroup AutoResourceVimrc
+      au!
+      au bufwritepost _vimrc,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $VIMHOME/_vimrc
+    augroup End
+  else
+    map <silent> <leader>ee :e $HOME/AppData/Local/nvim/init.vim<cr>
+    map <silent> <leader>ss :source $HOME/AppData/Local/nvim/init.vim<cr>
+    augroup AutoResourceVimrc
+      au!
+      au bufwritepost init.vim,basic.vim,extended.vim,file_related.vim,plugins_config.vim source $HOME/AppData/Local/nvim/init.vim
+    augroup End
+  endif
 endif
 
 
