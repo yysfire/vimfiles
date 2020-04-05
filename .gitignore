@@ -5,3 +5,4 @@ bundle/
 .netrwhist
 autoload/plug.vim
 plugged/
+local.vim
