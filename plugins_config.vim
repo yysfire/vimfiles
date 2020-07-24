@@ -22,6 +22,9 @@ Plug 'vim-scripts/a.vim'
 "A fancy start screen for Vim.
 Plug 'mhinz/vim-startify'
 
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 " Code Completion Section
 if has("python") || has("python3")
   "The ultimate snippet solution for Vim.
