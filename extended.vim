@@ -4,7 +4,7 @@
 "                使用前请确保已加载了基本配置文件 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"   Last Update: 2020-04-05 16:29
+"   Last Update: 2020-07-24 10:37
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
 let mapleader = ","
@@ -250,6 +250,10 @@ vnoremap <silent> <leader>rs :call vimrcfunc#extend#VisualSelection('replace')<C
 " 不用<leader>cn,避免和nerdcomment插件的相冲突
 map <leader>cx :cn<cr>
 map <leader>cp :cp<cr>
+
+map ln :lnext<CR>
+map lp :lprevious<CR>
+nnoremap lc :lclose<CR>
 
 " 将quickfix窗口的信息复制粘贴到新标签里
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
