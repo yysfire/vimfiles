@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-03-17 15:22
+"  Last Changed: 2020-07-24 17:08
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -500,17 +500,81 @@ let g:Lf_DefaultMode = 2
 "let g:go_bin_path = expand("$GOROOT/bin")
 "Enable syntax-highlighting for Functions, Methods and Structs
 let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
+let g:go_highlight_operators = 0
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 "Disable opening browser after posting your snippet to play.golang.org
 let g:go_play_open_browser = 0
 "Fix some issues when using vim-go with Syntastic
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:go_list_type = "quickfix"
+" 所有命令的输出都用locationlist(lnext, lprevious, lclose)
+let g:go_list_type = "locationlist"
+" 保存文件时，在格式化代码的同时，自动导入未导入的模块
+let g:go_fmt_command = "goimports"
+" use the popup-window for |K| and |:GoDoc|
+let g:go_doc_popup_window = 1
+" Specifies the linters to enable for the |:GoMetaLinter| command.
+"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+" command run in a new terminal asynchronously in the background
+let g:go_term_enabled = 1
+let g:go_term_mode = "vsplit"
+" g:go_term_mode = 'split' 时有效
+let g:go_term_height = 10
+" g:go_term_mode = 'vsplit' 时有效
+let g:go_term_width = 30
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+augroup go
+  autocmd!
+
+  " :GoBuild and :GoTestCompile
+  autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
+
+  " :GoTest
+  autocmd FileType go nmap <leader>gt  <Plug>(go-test)
+
+  " :GoRun
+  autocmd FileType go nmap <leader>gr  <Plug>(go-run)
+
+  " :GoDoc
+  "autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+
+  " :GoCoverageToggle
+  autocmd FileType go nmap <Leader>gc <Plug>(go-coverage-toggle)
+
+  " :GoDeclsDir
+  autocmd FileType go nmap <leader>gdd :GoDeclsDir<cr>
+
+  " :GoInfo
+  autocmd FileType go nmap <Leader>gi <Plug>(go-info)
+
+  " :GoMetaLinter
+  " 使用Ale
+  "autocmd FileType go nmap <Leader>gl <Plug>(go-metalinter)
+
+  " :GoDef but opens in a vertical split
+  autocmd FileType go nmap <Leader>gv <Plug>(go-def-vertical)
+  " :GoDef but opens in a horizontal split
+  autocmd FileType go nmap <Leader>gs <Plug>(go-def-split)
+
+  " :GoAlternate  commands :A, :AV, :AS and :AT
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -599,14 +663,18 @@ nmap sn <Plug>(ale_next_wrap)
 ""<Leader>d查看错误或警告的详细信息
 nmap <Leader>d :ALEDetail<CR>
 
-let g:ale_linters = {'python': ['flake8', 'mypy']}
+let g:ale_linters = {
+            \'python': ['flake8', 'mypy'],
+            \'go': ['golangci-lint', 'gofmt', 'golint'],
+            \}
+let g:ale_go_golangci_lint_options = ''
 let g:ale_fixers = {
-\   'python': [
-\       'isort',
-\       'autopep8',
-\       'yapf',
-\   ],
-\}
+            \'python': [
+            \    'isort',
+            \    'autopep8',
+            \    'yapf',
+            \    ],
+            \}
 " Bind F8 to fixing problems with ALE
 nmap <F8> <Plug>(ale_fix)
 
