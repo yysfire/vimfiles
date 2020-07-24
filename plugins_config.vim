@@ -108,6 +108,8 @@ Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 "Sneak is a minimalist, versatile Vim motion plugin that
 "jumps to any location specified by two characters.
 Plug 'justinmk/vim-sneak'
+"Switch between single-line and multiline forms of code
+Plug 'AndrewRadev/splitjoin.vim'
 
 "Plug 'Rykka/colorv.vim'
 
