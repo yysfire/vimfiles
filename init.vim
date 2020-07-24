@@ -3,7 +3,7 @@
 "   Description: 用于加载其它四个配置文件
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-04-05 16:54
+"  Last Changed: 2020-07-23 21:47
 "=============================================================================
 " za                            --展开或收起当前折叠
 " zi                            --展开或收起所有折叠
@@ -35,7 +35,10 @@ else
 endif
 
 if (has('nvim') && filereadable(expand("$VIMFILES/local.vim")))
-  " 因环境而异的一些设置
+  " 因环境而异的一些设置, 比如：
+  " let g:python3_host_prog='/usr/bin/python3'
+  " let g:python_host_prog='/usr/bin/python'
+  " let $GO111MODULE="off"
   source $VIMFILES/local.vim
 endif
 
