@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-03-17 15:22
+"  Last Changed: 2020-04-06 22:32
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -44,7 +44,7 @@ endif
 " some completion sources
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
+"Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-racer'
@@ -54,6 +54,8 @@ Plug 'ncm2/ncm2-ultisnips'
 
 "Surround.vim: quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
+"easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'tpope/vim-abolish'
 
 Plug 'vim-scripts/matchit.zip'
 
@@ -81,6 +83,8 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 "No-BS Python code folding
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+"A nicer Python indentation style
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 "Configuration for Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 "Go development plugin
@@ -129,7 +133,7 @@ if has("python") || has("python3")
   "Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
-  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
   "Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
   Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
 endif
@@ -141,6 +145,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
 
 if g:ostype=='unix' && !has("win32unix")
     "Plug 'fcitx.vim'
@@ -159,8 +165,9 @@ set rtp+=$VIMFILES/localbundle/*/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => python-mode plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let s:python_local_version = substitute(system("$(which python) -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
+let s:python_local_version = substitute(system("python -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
 let g:pymode = 1
-let s:python_local_version = substitute(system("$(which python) -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
 if s:python_local_version == 3
   let g:pymode_python = 'python3'
 else
@@ -186,6 +193,14 @@ let g:pymode_options = 1
 "setlocal formatoptions-=t
 "setlocal commentstring=#%s
 "setlocal define=^\s*\\(def\\\\|class\\)
+
+
+""""""""""""""""""""""""""""
+"  vim-python-pep8-indent  "
+""""""""""""""""""""""""""""
+if filereadable(expand("$VIMFILES/plugged/vim-python-pep8-indent/indent/python.vim"))
+    let g:pymode_indent = 0
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -579,12 +594,12 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 if s:python_local_version == 3
-    let g:ale_python_flake8_executable = '/usr/bin/python3'
+    let g:ale_python_flake8_executable = g:python3_host_prog
 else
-    let g:ale_python_flake8_executable = '/usr/bin/python'
+    let g:ale_python_flake8_executable = g:python_host_prog
     let g:ale_python_mypy_options .= ' --py2'
 endif
-let g:ale_python_flake8_options = '-m flake8'
+let g:ale_python_flake8_options = '-m flake8 --max-line-length=240'
 "let g:ale_python_mypy_ignore_invalid_syntax = 1
 ""普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap sp <Plug>(ale_previous_wrap)
@@ -644,6 +659,7 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set shortmess+=c
 
 " :help Ncm2PopupOpen for more information
+" 会和 kite 插件冲突
 au User Ncm2PopupOpen set completeopt=menuone,noinsert,noselect
 au User Ncm2PopupClose set completeopt=menuone
 
@@ -670,16 +686,19 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 "  => LanguageClient-neovim  "
 """"""""""""""""""""""""""""""
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['pyls'],
     \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+set completefunc=LanguageClient#complete
+"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap gc :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" Rename - rn => rename
+nnoremap <leader>rn :call LanguageClient#textDocument_rename()<CR>
 
 
 """""""""""""""
@@ -693,3 +712,14 @@ let g:shfmt_fmt_on_save = 1
 "  SudoEdit  "
 """"""""""""""
 let g:sudo_askpass='/usr/lib/openssh/gnome-ssh-askpass'
+
+
+""""""""""""""
+"  kite  "
+""""""""""""""
+set completeopt+=menuone   " show the popup menu even when there is only 1 match
+set completeopt+=noinsert  " don't insert any text until user chooses a match
+set completeopt-=longest   " don't insert the longest common text
+"set completeopt+=preview
+"autocmd CompleteDone * if !pumvisible() | pclose | endif
+"nmap <silent> <buffer> gK <Plug>(kite-docs)
