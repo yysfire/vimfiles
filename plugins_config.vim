@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-07-24 17:08
+"  Last Changed: 2020-08-03 14:04
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -47,7 +47,9 @@ endif
 " some completion sources
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
+if g:ostype!='windows'
+  Plug 'ncm2/ncm2-jedi'
+endif
 Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-racer'
@@ -135,8 +137,13 @@ if has("python") || has("python3")
   Plug 'sjl/gundo.vim'
   "Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
-  "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
-  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  if g:ostype!='windows'
+    "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  else
+    "A nicer Python indentation style
+    Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+  endif
   "Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
   Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
 endif
@@ -197,6 +204,14 @@ let g:pymode_options = 1
 "setlocal formatoptions-=t
 "setlocal commentstring=#%s
 "setlocal define=^\s*\\(def\\\\|class\\)
+
+
+""""""""""""""""""""""""""""
+"  vim-python-pep8-indent  "
+""""""""""""""""""""""""""""
+if filereadable(expand("$VIMFILES/plugged/vim-python-pep8-indent/indent/python.vim"))
+    let g:pymode_indent = 0
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -659,7 +674,7 @@ else
     let g:ale_python_flake8_executable = g:python_host_prog
     let g:ale_python_mypy_options .= ' --py2'
 endif
-let g:ale_python_flake8_options = '-m flake8'
+let g:ale_python_flake8_options = '-m flake8 --max-line-length=240'
 "let g:ale_python_mypy_ignore_invalid_syntax = 1
 ""普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap sp <Plug>(ale_previous_wrap)
@@ -749,9 +764,13 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 "  => LanguageClient-neovim  "
 """"""""""""""""""""""""""""""
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
+autocmd FileType rust setlocal completefunc=LanguageClient#complete
+if g:ostype=='windows'
+  let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
+endif
+autocmd FileType python setlocal completefunc=LanguageClient#complete
 
 nnoremap gc :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
