@@ -165,7 +165,11 @@ set rtp+=$VIMFILES/localbundle/*/
 " => python-mode plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode = 1
-let s:python_local_version = substitute(system("$(which python) -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
+if g:ostype=='windows'
+  let s:python_local_version = substitute(system("python -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
+else
+  let s:python_local_version = substitute(system("$(which python) -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
+endif
 if s:python_local_version == 3
   let g:pymode_python = 'python3'
 else
@@ -648,9 +652,9 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 if s:python_local_version == 3
-    let g:ale_python_flake8_executable = '/usr/bin/python3'
+    let g:ale_python_flake8_executable = g:python3_host_prog
 else
-    let g:ale_python_flake8_executable = '/usr/bin/python'
+    let g:ale_python_flake8_executable = g:python_host_prog
     let g:ale_python_mypy_options .= ' --py2'
 endif
 let g:ale_python_flake8_options = '-m flake8'
