@@ -57,6 +57,8 @@ Plug 'ncm2/ncm2-ultisnips'
 
 "Surround.vim: quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
+"easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'tpope/vim-abolish'
 
 Plug 'vim-scripts/matchit.zip'
 
