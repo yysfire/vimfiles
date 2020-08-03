@@ -555,7 +555,7 @@ augroup go
   autocmd FileType go nmap <leader>gr  <Plug>(go-run)
 
   " :GoDoc
-  "autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+  autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 
   " :GoCoverageToggle
   autocmd FileType go nmap <Leader>gc <Plug>(go-coverage-toggle)
@@ -740,8 +740,8 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gs <Plug>(rust-def-split)
+au FileType rust nmap <leader>gv <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 
@@ -753,11 +753,12 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap gc :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
 
 
