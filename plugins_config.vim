@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-08-03 14:04
+"  Last Changed: 2020-08-11 12:07
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -144,8 +144,8 @@ if has("python") || has("python3")
     "A nicer Python indentation style
     Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
   endif
-  "Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
-  Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
+  Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
+  "Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
 endif
 
 " This plugin allows vim to use Racer for Rust code navigation.
