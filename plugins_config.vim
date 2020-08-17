@@ -770,14 +770,15 @@ if g:ostype=='windows'
   let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
 endif
 
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') setlocal completefunc=LanguageClient#complete
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap gc :call LanguageClient_contextMenu()<CR>
+let b:lc_filetypes = join(keys(g:LanguageClient_serverCommands), ',')
+execute "autocmd FileType " . b:lc_filetypes . " setlocal completefunc=LanguageClient#complete"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap gc :call LanguageClient_contextMenu()<CR>"
 " Or map each action separately
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>
-autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>"
 
 
 """""""""""""""
