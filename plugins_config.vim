@@ -766,19 +766,18 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
-autocmd FileType rust setlocal completefunc=LanguageClient#complete
 if g:ostype=='windows'
   let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
 endif
-autocmd FileType python setlocal completefunc=LanguageClient#complete
 
-nnoremap gc :call LanguageClient_contextMenu()<CR>
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') setlocal completefunc=LanguageClient#complete
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap gc :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>
+autocmd FileType join(keys(g:LanguageClient_serverCommands), ',') nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>
 
 
 """""""""""""""
