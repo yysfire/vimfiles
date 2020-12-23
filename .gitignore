@@ -4,5 +4,5 @@ bundle/
 *.orig
 .netrwhist
 autoload/plug.vim
-plugged/
+plugged*
 local.vim

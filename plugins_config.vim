@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-08-11 12:07
+"  Last Changed: 2020-12-23 19:31
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -47,9 +47,9 @@ endif
 " some completion sources
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
-if g:ostype!='windows'
-  Plug 'ncm2/ncm2-jedi'
-endif
+"if g:ostype!='windows'
+"  Plug 'ncm2/ncm2-jedi'
+"endif
 Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-racer'
@@ -137,13 +137,8 @@ if has("python") || has("python3")
   Plug 'sjl/gundo.vim'
   "Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
-  if g:ostype!='windows'
-    "Vim python-mode. PyLint, Rope, Pydoc, breakpoints from box.
-    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-  else
-    "A nicer Python indentation style
-    Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-  endif
+  "A nicer Python indentation style
+  Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
   Plug 'aquach/vim-mediawiki-editor', { 'do': ':!pip install mwclient' }
   "Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
 endif
@@ -171,39 +166,13 @@ set rtp+=$VIMFILES/localbundle/*/
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => python-mode plugin
+" => python env
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pymode = 1
 if g:ostype=='windows'
   let s:python_local_version = substitute(system("python -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
 else
   let s:python_local_version = substitute(system("$(which python) -c 'import sys; print(sys.version_info.major)' 2>/dev/null"), '\n\+$', '', '')
 endif
-if s:python_local_version == 3
-  let g:pymode_python = 'python3'
-else
-  let g:pymode_python = 'python'
-endif
-let g:pymode_doc = 0
-let g:pymode_virtualenv = 1
-"let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pep257']
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_lint_ignore = ["E501", "E722"]
-let g:pymode_lint_sort = ['E', 'C', 'I']
-"发现错误时不自动打开QuickFix窗口
-let g:pymode_lint_cwindow = 0
-let g:pymode_options_max_line_length = 79
-let g:pymode_breakpoint_bind = '<leader>br'
-let g:pymode_rope = 1
-"不在父目录里查找 .ropeproject
-let g:pymode_rope_lookup_project = 0
-let g:pymode_rope_autoimport = 0
-let g:pymode_options = 1
-"let g:pymode_options = 0
-"setlocal complete+=t
-"setlocal formatoptions-=t
-"setlocal commentstring=#%s
-"setlocal define=^\s*\\(def\\\\|class\\)
 
 
 """"""""""""""""""""""""""""
@@ -775,9 +744,7 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
-if g:ostype=='windows'
-  let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
-endif
+let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
 
 let b:lc_filetypes = join(keys(g:LanguageClient_serverCommands), ',')
 execute "autocmd FileType " . b:lc_filetypes . " setlocal completefunc=LanguageClient#complete"
