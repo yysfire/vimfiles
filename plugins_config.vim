@@ -692,11 +692,17 @@ let g:ale_linters = {
             \'go': ['golangci-lint', 'gofmt', 'golint'],
             \}
 let g:ale_go_golangci_lint_options = ''
+"let g:ale_fixers = {
+"            \'python': [
+"            \    'isort',
+"            \    'autopep8',
+"            \    'yapf',
+"            \    ],
+"            \}
 let g:ale_fixers = {
             \'python': [
             \    'isort',
-            \    'autopep8',
-            \    'yapf',
+            \    'black',
             \    ],
             \}
 " Bind F8 to fixing problems with ALE
