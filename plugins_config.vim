@@ -595,6 +595,9 @@ augroup go
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
   autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+  " 自动补全快捷键
+  autocmd Filetype go imap <C-Space> <C-x><C-o>
 augroup END
 
 
