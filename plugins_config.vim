@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-12-23 19:31
+"  Last Changed: 2020-12-28 22:02
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -741,6 +741,7 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 """"""""""""""""""""""""""""""
 "  => LanguageClient-neovim  "
 """"""""""""""""""""""""""""""
+let g:LanguageClient_settingsPath = $VIMFILES . '/lsp_settings.json'
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
