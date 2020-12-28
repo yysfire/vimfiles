@@ -639,15 +639,15 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 " 打开文件时不启用检查
 let g:ale_lint_on_enter = 0
-let g:ale_python_mypy_options = '--ignore-missing-imports'
+let g:ale_python_mypy_options = '--ignore-missing-imports --max-line-length=240'
 if s:python_local_version == 3
     let g:ale_python_flake8_executable = g:python3_host_prog
 else
     let g:ale_python_flake8_executable = g:python_host_prog
     let g:ale_python_mypy_options .= ' --py2'
 endif
-let g:ale_python_flake8_options = '-m flake8 --max-line-length=240'
-"let g:ale_python_mypy_ignore_invalid_syntax = 1
+let g:ale_python_flake8_options = '-m flake8 --max-line-length=240 --ignore=E203,W503,C901'
+let g:ale_python_mypy_ignore_invalid_syntax = 1
 ""普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap sp <Plug>(ale_previous_wrap)
 nmap sn <Plug>(ale_next_wrap)
