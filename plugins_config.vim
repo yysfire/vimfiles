@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-12-28 22:02
+"  Last Changed: 2020-12-29 21:10
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -36,6 +36,8 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 "Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Raimondi/delimitMate'
+"Generate Python docstring to your Python source code
+Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
 Plug 'ncm2/ncm2'
 " ncm2 requires nvim-yarp
@@ -769,3 +771,9 @@ let g:shfmt_fmt_on_save = 1
 "  SudoEdit  "
 """"""""""""""
 let g:sudo_askpass='/usr/lib/openssh/gnome-ssh-askpass'
+
+
+"""""""""""""""""
+"  pydocstring  "
+"""""""""""""""""
+let g:pydocstring_doq_path='doq'
