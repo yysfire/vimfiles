@@ -146,9 +146,6 @@ if has("python") || has("python3")
   "Plug 'yysfire/vim-mediawiki-editor', { 'branch': 'dev', 'do': ':!pip install mwclient' }
 endif
 
-" This plugin allows vim to use Racer for Rust code navigation.
-Plug 'racer-rust/vim-racer'
-
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -728,17 +725,6 @@ inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 "let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 let g:UltiSnipsRemoveSelectModeMappings = 0
-
-
-""""""""""""""""""
-" => vim-racer  "
-""""""""""""""""""
-set hidden
-let g:racer_cmd = "~/.cargo/bin/racer"
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap <leader>gs <Plug>(rust-def-split)
-au FileType rust nmap <leader>gv <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 
 """"""""""""""""""""""""""""""
