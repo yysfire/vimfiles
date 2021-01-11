@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2021-01-06 08:51
+"  Last Changed: 2021-01-11 11:47
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -732,7 +732,7 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 """"""""""""""""""""""""""""""
 let g:LanguageClient_settingsPath = $VIMFILES . '/lsp_settings.json'
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rust-analyzer'],
     \ }
 let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
 
