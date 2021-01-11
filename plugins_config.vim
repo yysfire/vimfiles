@@ -648,7 +648,7 @@ else
     let g:ale_python_flake8_executable = g:python_host_prog
     let g:ale_python_mypy_options .= ' --py2'
 endif
-let g:ale_python_flake8_options = '-m flake8 --max-line-length=240 --ignore=E203,W503,C901'
+let g:ale_python_flake8_options = '-m flake8 --max-line-length=240 --ignore=E203,W503,W504,C901'
 let g:ale_python_mypy_ignore_invalid_syntax = 1
 ""普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap sp <Plug>(ale_previous_wrap)
