@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-12-29 21:10
+"  Last Changed: 2021-01-06 08:51
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -110,6 +110,7 @@ Plug 'gu-fan/InstantRst', { 'for': 'rst' }
 "A plugin for making Vim plugins
 Plug 'tpope/vim-scriptease'
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+Plug 'dbeniamine/cheat.sh-vim'
 
 "Sneak is a minimalist, versatile Vim motion plugin that
 "jumps to any location specified by two characters.
