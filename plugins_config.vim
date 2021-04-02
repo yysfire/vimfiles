@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2021-01-11 11:47
+"  Last Changed: 2021-04-02 16:39
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -745,6 +745,14 @@ execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gd :call Lang
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>"
+
+let g:LanguageClient_rootMarkers = {
+    \ 'python': ['pyproject.toml', 'Pipfile', 'setup.py'],
+    \ 'rust': ['Cargo.toml'],
+    \ }
+
+" 切换工作目录和project root
+map <leader>gcr :lcd %:p:h<cr>:LanguageClientStop<cr>:sleep 500m<cr>:LanguageClientStart<cr>
 
 
 """""""""""""""
