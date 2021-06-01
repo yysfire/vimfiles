@@ -774,3 +774,4 @@ let g:sudo_askpass='/usr/lib/openssh/gnome-ssh-askpass'
 let g:pydocstring_doq_path='doq'
 " 默认的map是<C-L>，与窗口切换冲突
 let g:pydocstring_enable_mapping=0
+autocmd Filetype python nmap <silent> <A-m> <Plug>(pydocstring)
