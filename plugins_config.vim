@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2021-04-02 16:39
+"  Last Changed: 2021-07-30 13:45
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -510,7 +510,7 @@ let g:go_doc_popup_window = 1
 "let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 " command run in a new terminal asynchronously in the background
 let g:go_term_enabled = 1
-let g:go_term_mode = "vsplit"
+let g:go_term_mode = "split"
 " g:go_term_mode = 'split' 时有效
 let g:go_term_height = 10
 " g:go_term_mode = 'vsplit' 时有效
@@ -775,3 +775,9 @@ let g:pydocstring_doq_path='doq'
 " 默认的map是<C-L>，与窗口切换冲突
 let g:pydocstring_enable_mapping=0
 autocmd Filetype python nmap <silent> <A-m> <Plug>(pydocstring)
+
+
+""""""""""""""""""""
+"  neovide config  "
+""""""""""""""""""""
+let g:neovide_fullscreen=v:true
