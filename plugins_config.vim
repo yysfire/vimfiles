@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2021-08-03 19:30
+"  Last Changed: 2021-11-26 11:56
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -129,6 +129,8 @@ Plug 'junegunn/gv.vim'
 Plug 'mattn/gist-vim'
 "Required by gist-vim
 Plug 'mattn/webapi-vim'
+"Support for SVN, Git, HG and BZR
+Plug 'juneedahamed/vc.vim'
 
 " Colorscheme Section
 Plug 'tomasr/molokai'
