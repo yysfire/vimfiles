@@ -3,7 +3,7 @@
 "   Description: 与指定文件相关的配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2020-04-10 21:47
+"  Last Changed: 2021-09-01 14:20
 "=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
@@ -167,3 +167,12 @@ au FileType markdown,mkd setl fdl=99
 " => golang section
 """"""""""""""""""""""""""""""
 au FileType go setl noet sw=8 sts=0 ts=8 tw=0
+
+
+"""""""""""""""""""""
+" => yaml section   "
+"""""""""""""""""""""
+"Use 4 spaces for indentation.
+"Use spaces instead of tabs.
+"Skip re-indenting lines after inserting a comment character (#) at the beginning of a line, or a colon.
+autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab tw=0 indentkeys-=0# indentkeys-=<:>
