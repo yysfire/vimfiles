@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2021-11-26 11:56
+"  Last Changed: 2022-01-18 11:09
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -829,7 +829,7 @@ map <leader>gcr :lcd %:p:h<cr>:LanguageClientStop<cr>:sleep 500m<cr>:LanguageCli
 "  vim-shfmt  "
 """""""""""""""
 let g:shfmt_extra_args = '-i 2 -ci -sr'
-let g:shfmt_fmt_on_save = 1
+let g:shfmt_fmt_on_save = 0
 
 
 """"""""""""""
