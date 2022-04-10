@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2022-04-09 14:44
+"  Last Changed: 2022-04-10 12:05
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -54,7 +54,7 @@ Plug 'ncm2/ncm2-path'
 "endif
 Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
 Plug 'ncm2/ncm2-go'
-Plug 'ncm2/ncm2-racer'
+"Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'ncm2/ncm2-rst-subscope'
 Plug 'ncm2/ncm2-ultisnips'
