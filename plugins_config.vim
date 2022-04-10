@@ -857,6 +857,11 @@ let g:neovide_fullscreen=v:false
 "  nvui config  "
 """""""""""""""""
 if exists('g:nvui')
-  autocmd InsertEnter * NvuiIMEEnable
-  autocmd InsertLeave * NvuiIMEDisable
+  NvuiAnimationsEnabled v:true
+  NvuiFrameless v:true
+  NvuiPopupMenu v:true
+  "NvuiCmdline v:true
+
+  autocmd CmdlineEnter,InsertEnter * NvuiIMEEnable
+  autocmd BufEnter,CmdlineLeave,InsertLeave * NvuiIMEDisable
 endif
