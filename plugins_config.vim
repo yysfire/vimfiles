@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2022-04-10 12:05
+"  Last Changed: 2022-04-10 21:12
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -811,10 +811,17 @@ execute "autocmd FileType " . b:lc_filetypes . " setlocal completefunc=LanguageC
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap gc :call LanguageClient_contextMenu()<CR>"
 " Or map each action separately
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <C-K> :call LanguageClient#textDocument_signatureHelp()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>i :call LanguageClient#textDocument_implementation()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>rf :call LanguageClient#textDocument_references()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>"
-execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> grn :call LanguageClient#textDocument_rename()<CR>"
-execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gfm :call LanguageClient#textDocument_formatting()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>rn :call LanguageClient#textDocument_rename()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>td :call LanguageClient#textDocument_typeDefinition()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>ca :call LanguageClient#textDocument_codeAction()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>f :call LanguageClient#textDocument_formatting()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>cl :call LanguageClient#textDocument_codeLens()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>cla :call LanguageClient#handleCodeLensAction()<CR>"
 
 let g:LanguageClient_rootMarkers = {
     \ 'python': ['pyproject.toml', 'Pipfile', 'setup.py'],
