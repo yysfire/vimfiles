@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2022-04-06 11:05
+"  Last Changed: 2022-04-09 14:44
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -851,3 +851,12 @@ autocmd Filetype python nmap <silent> <A-m> <Plug>(pydocstring)
 "  neovide config  "
 """"""""""""""""""""
 let g:neovide_fullscreen=v:false
+
+
+"""""""""""""""""
+"  nvui config  "
+"""""""""""""""""
+if exists('g:nvui')
+  autocmd InsertEnter * NvuiIMEEnable
+  autocmd InsertLeave * NvuiIMEDisable
+endif
