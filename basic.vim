@@ -3,7 +3,7 @@
 "   Description: 此为基本配置文件，只进行了一些基本设置，没有映射任何快捷方式
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2018-05-09 17:54
+"  Last Changed: 2025-08-17 19:57
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
@@ -186,11 +186,11 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-if (g:ostype=='windows'||has("win32unix"))
-  set termencoding=cp936
-else
-  set termencoding=utf-8
-endif
+"if (g:ostype=='windows'||has("win32unix"))
+"  set termencoding=cp936
+"else
+"  set termencoding=utf-8
+"endif
 
 if v:lang =~? '^\(zh\)\|\(ja\)\|\(ko\)'
   set ambiwidth=double

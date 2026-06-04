@@ -3,7 +3,7 @@
 "   Description: 插件的相关配置，请确保至少已加载 basic.vim
 "        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
 "      HomePage: http://yysfire.github.io
-"  Last Changed: 2022-04-10 21:12
+"  Last Changed: 2024-08-13 11:40
 "=============================================================================
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -16,7 +16,7 @@ call plug#begin('$VIMFILES/plugged')
 "Quickly locate files, buffers, mrus, ... in large project.
 Plug 'Yggdroot/LeaderF', { 'commit': '67d8ae7478da186f3b246277801ef04d278a4257' }
 "Displays tags in a window, ordered by scope
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 "Alternate Files quickly (.c --> .h etc)
 Plug 'vim-scripts/a.vim'
 "A fancy start screen for Vim.
@@ -800,18 +800,20 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 """"""""""""""""""""""""""""""
 "  => LanguageClient-neovim  "
 """"""""""""""""""""""""""""""
-let g:LanguageClient_settingsPath = $VIMFILES . '/lsp_settings.json'
+let g:LanguageClient_loggingFile = $VIMHOME . '/LanguageClient.log'
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_settingsPath = 'pyls_settings.json'
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
     \ }
-let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls']})
+let g:LanguageClient_serverCommands = extend(g:LanguageClient_serverCommands, {'python': ['pyls-wrapper', '--log-file', '~/pyls.log']})
 
 let b:lc_filetypes = join(keys(g:LanguageClient_serverCommands), ',')
 execute "autocmd FileType " . b:lc_filetypes . " setlocal completefunc=LanguageClient#complete"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap gc :call LanguageClient_contextMenu()<CR>"
 " Or map each action separately
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>"
-execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <C-K> :call LanguageClient#textDocument_signatureHelp()<CR>"
+execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>k :call LanguageClient#textDocument_signatureHelp()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>i :call LanguageClient#textDocument_implementation()<CR>"
 execute "autocmd FileType " . b:lc_filetypes . " nnoremap <silent> <Space>rf :call LanguageClient#textDocument_references()<CR>"
